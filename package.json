@@ -1,0 +1,50 @@
+{
+  "name": "devtools",
+  "version": "0.1.0",
+  "description": "es6 modules and browserify",
+  "main": "js/es6/main.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-register --require babel-polyfill",
+    "babel": "babel js/es6/main.js --out-file js/main.js",
+    "watch-js": "watchify js/es6/main.js -d -o js/main.js ",
+    "watch-css": "node-sass --watch --source-map true css/main.scss css/main.css --output-style=compact",
+    "browsersync": "browser-sync start --server --files \"css/*.css, *html, *js/*.js\"",
+    "uglify": "uglifyjs js/main.js -c -m > js/main.min.js",
+    "start": "npm run watch-js"
+  },
+  "author": "Filip Swinarski",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-es2016": "^6.16.0",
+    "babel-preset-es2017": "^6.16.0",
+    "babel-register": "^6.18.0",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.18.5",
+    "browserify": "^13.1.1",
+    "browsersync": "0.0.1-security",
+    "chai": "^3.5.0",
+    "exorcist": "^0.4.0",
+    "mocha": "^3.2.0",
+    "node-sass": "^4.1.1",
+    "uglify-js": "^2.7.5",
+    "watchify": "^3.8.0"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/filip-swinarski/devtools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/filip-swinarski/devtools/issues"
+  },
+  "homepage": "https://github.com/filip-swinarski/devtools#readme"
+}
