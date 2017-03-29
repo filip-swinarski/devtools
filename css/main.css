@@ -37,4 +37,9 @@
 
 .console__input { border: 1px solid #bcbcbc; width: 100%; height: 30px; margin: 0; padding: 0; }
 
+/* console v. 0.1.0 28.03.2017 @ filip-swinarski */
+.browser__display { border: 1px solid #bcbcbc; }
+
+.browser__input { border: 1px solid #bcbcbc; width: 100%; height: 30px; margin: 0; padding: 0; }
+
 /*# sourceMappingURL=main.css.map */
