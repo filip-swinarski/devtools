@@ -1,8 +1,19 @@
-/* inspector v. 0.1.1 29.03.2017 @ filip-swinarski */
+/* inspector v. 0.1.2 29.03.2017 @ filip-swinarski */
 
 .inspector {
 
-	position: relative;
+	&__display {
+
+		position: relative;
+		border: 1px solid $border-color;
+
+		& > .inspector__exp {
+
+			display: block;
+
+		}
+
+	}
 
 	&__row {
 	
@@ -70,12 +81,6 @@
 
 		}
 	
-	}
-
-	& > .inspector__exp {
-
-		display: block;
-
 	}
 
 	&__tag-name {

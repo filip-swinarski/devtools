@@ -1,6 +1,7 @@
-/* console_listen.js, v. 0.1.0, 28.03.2017, @ filip-swinarski */
+/* console_listen.js, v. 0.1.1, 29.03.2017, @ filip-swinarski */
 
 import {consoleDisplay} from './render_console.js';
+import {consoleInput} from './render_console.js';
 
 let consoleListen = () => {
 
@@ -12,11 +13,11 @@ let consoleListen = () => {
 		let errorLineNo = document.createElement('span');
 		let errorColumnNo = document.createElement('span');
 
-		row.classList.add('console-row');
-		errorMessage.classList.add('console-row');
-		errorSource.classList.add('console-source');
-		errorLineNo.classList.add('console-lineno');
-		errorColumnNo.classList.add('console-columnno');
+		row.classList.add('console__row');
+		errorMessage.classList.add('console__message');
+		errorSource.classList.add('console__source');
+		errorLineNo.classList.add('console__lineno');
+		errorColumnNo.classList.add('console__columnno');
 
 		errorMessage.innerHTML += error.message;
 		errorSource.innerHTML += error.filename;
@@ -36,15 +37,35 @@ let consoleListen = () => {
 		let row = document.createElement('div');
 		let logMessage = document.createElement('span');
 
-		logMessage.innerHTML += e.detail;
+		logMessage.innerHTML += e.detail[0];
 
-		row.classList.add('console-row');
-		logMessage.classList.add('console-message');
+		row.classList.add('console__row');
+		logMessage.classList.add('console__message');
 
 		row.appendChild(logMessage);
 		consoleDisplay.appendChild(row);
 
 	}, false);
+
+	consoleInput.addEventListener('keypress', (e) => {
+	
+		let log = val => {
+			return [val, 'log'];
+		};
+		let dir = val => {
+			return [val, 'dir'];
+		};
+		let error = val => {
+			return [new Error(val), 'err'];
+		};
+
+		if (e.keyCode === 13) {
+			let value = eval(consoleInput.value);
+			DTConsole.log(value[0], value[1]);	
+			consoleInput.value = '';
+		}
+
+	});
 
 }
 

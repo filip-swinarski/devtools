@@ -7,10 +7,13 @@ import {consoleListen} from './modules/console_listen.js';
 import * as DTConsole from './modules/dt_console_api.js';
 
 const body = document.body;
+const container = document.createElement('div');
 
+container.id = 'dev_tools';
+container.classList.add('tools');
+body.appendChild(container);
 loadStyles();
-renderInspector(body);
-renderConsole(body);
-// consoleListen();
+renderInspector(body, container);
+renderConsole(container);
 
 window.DTConsole = DTConsole;
