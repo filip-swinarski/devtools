@@ -1,8 +1,8 @@
-/* render_dom.js, v. 0.1.0 @ filip-swinarski */
+/* render_dom.js, v. 0.1.3, 28.03.2017, @ filip-swinarski */
 
 let renderDOM = (elem, parentEl, level) => {
 
-	if (elem.id === 'display')
+	if (elem.id === 'inspector_display')
 		return;
 
 	let wrapper = document.createElement('div');
@@ -10,13 +10,9 @@ let renderDOM = (elem, parentEl, level) => {
 	let row2 = elem.children.length ? document.createElement('div') : document.createElement('span');
 	
 	wrapper.style.marginLeft = '20px';
-	wrapper.classList.add('exp');
 	row1.classList.add('row');
 	row1.classList.add('opening');
-	
-	if (level < 2)
-		row1.classList.add('expanded');
-	
+
 	row2.classList.add('row');
 	row2.classList.add('closing');
 	
@@ -55,20 +51,32 @@ let renderDOM = (elem, parentEl, level) => {
 	
 	row1.appendChild(row1CloseArrow);
 	wrapper.appendChild(row1);
+	wrapper.classList.add('exp');
 	
 	if (elem.text && elem.text.length) {
 		
 		let textEl = document.createElement('div');
 		
 		textEl.style.marginLeft = '20px';
+		textEl.classList.add('exp');
 		textEl.innerText = elem.text.trim();
 		wrapper.appendChild(textEl)
+
+		if (level < 2)
+			row1.classList.add('expanded');
+		else
+			row1.classList.add('collapsed');
 	}
 	
 	if (elem.children.length)
 		level += 1;
 		[].slice.call(elem.children).forEach((el) => {
 			renderDOM(el, wrapper, level);
+
+			if (level < 2)
+				row1.classList.add('expanded');
+			else
+				row1.classList.add('collapsed');
 		});
 
 	row2OpenArrow.innerText =  '</';
@@ -78,7 +86,7 @@ let renderDOM = (elem, parentEl, level) => {
 	row2.appendChild(row2ElementTypeSpan);
 	row2.appendChild(row2CloseArrow);
 	
-	if (elem.children.length)
+	if (elem.children.length || elem.text && elem.text.length)
 		wrapper.appendChild(row2);
 	else
 		row1.appendChild(row2);
@@ -86,6 +94,7 @@ let renderDOM = (elem, parentEl, level) => {
 	row1.addEventListener('click', (e) => {
 		e.preventDefault();
 		row1.classList.toggle('expanded')
+		row1.classList.toggle('collapsed')
 	}, false);
 	
 	parentEl.appendChild(wrapper);

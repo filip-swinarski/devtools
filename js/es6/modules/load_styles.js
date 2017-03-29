@@ -1,4 +1,4 @@
-/* load _styles.js v. 0.1.0 27.03.2017 @ filip-swinarski */
+/* load _styles.js v. 0.1.0, 28.03.2017, @ filip-swinarski */
 
 let loadStyles = () => {
 

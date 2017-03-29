@@ -1,7 +1,32 @@
 /* main */
-/* base */
-p a { font-size: 15px; color: red; }
+/* base v. 0.1.2 27.03.2017 @ filip-swinarski */
+.display { font-size: 16px; position: relative; }
 
-body { width: 100%; height: 100%; margin: 0; padding: 10px; }
+/* inspector v. 0.1.0 27.03.2017 @ filip-swinarski */
+.row { white-space: nowrap; color: #444; }
+
+.row:hover::before { content: ''; width: 100%; height: 20px; background-color: #efefef; position: absolute; left: 0; z-index: -1; }
+
+.opening { cursor: pointer; position: relative; }
+
+.exp { display: none; }
+
+.exp > .opening::after { content: ''; display: none; border-left: 6px solid #bbb; border-top: 4px solid transparent; border-bottom: 4px solid transparent; position: absolute; top: 8px; left: -8px; }
+
+.exp > .opening.collapsed::after { display: block; transform: rotate(0); transition: transform .5s; }
+
+.exp > .opening.expanded::after { display: block; transform: rotate(90deg); transition: transform .5s; }
+
+.display > .exp { display: block; }
+
+.expanded ~ .exp { display: block; }
+
+.tag-name { color: #800080; }
+
+.attr-name { color: #000; }
+
+.attr-value { color: #00f; }
+
+/* console v. 0.1.0 28.03.2017 @ filip-swinarski */
 
 /*# sourceMappingURL=main.css.map */
