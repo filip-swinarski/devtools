@@ -1,31 +1,33 @@
 /* main */
-/* base v. 0.1.2 27.03.2017 @ filip-swinarski */
-.display { font-size: 16px; position: relative; }
+/* base v. 0.1.3 29.03.2017 @ filip-swinarski */
+.body { font-size: 16px; }
 
-/* inspector v. 0.1.0 27.03.2017 @ filip-swinarski */
-.row { white-space: nowrap; color: #444; }
+/* inspector v. 0.1.1 29.03.2017 @ filip-swinarski */
+.inspector { position: relative; }
 
-.row:hover::before { content: ''; width: 100%; height: 20px; background-color: #efefef; position: absolute; left: 0; z-index: -1; }
+.inspector__row { white-space: nowrap; color: #444; }
 
-.opening { cursor: pointer; position: relative; }
+.inspector__row:hover::before { content: ''; width: 100%; height: 20px; background-color: #efefef; position: absolute; left: 0; z-index: -1; }
 
-.exp { display: none; }
+.inspector__row--opening { cursor: pointer; position: relative; }
 
-.exp > .opening::after { content: ''; display: none; border-left: 6px solid #bbb; border-top: 4px solid transparent; border-bottom: 4px solid transparent; position: absolute; top: 8px; left: -8px; }
+.inspector__row--expanded ~ .inspector__exp { display: block; }
 
-.exp > .opening.collapsed::after { display: block; transform: rotate(0); transition: transform .5s; }
+.inspector__exp { display: none; margin-left: 20px; }
 
-.exp > .opening.expanded::after { display: block; transform: rotate(90deg); transition: transform .5s; }
+.inspector__exp > .inspector__row--opening::after { content: ''; display: none; border-left: 6px solid #bbb; border-top: 4px solid transparent; border-bottom: 4px solid transparent; position: absolute; top: 8px; left: -8px; }
 
-.display > .exp { display: block; }
+.inspector__exp > .inspector__row--collapsed::after { display: block; transform: rotate(0); transition: transform .5s; }
 
-.expanded ~ .exp { display: block; }
+.inspector__exp > .inspector__row--expanded::after { display: block; transform: rotate(90deg); transition: transform .5s; }
 
-.tag-name { color: #800080; }
+.inspector > .inspector__exp { display: block; }
 
-.attr-name { color: #000; }
+.inspector__tag-name { color: #800080; }
 
-.attr-value { color: #00f; }
+.inspector__attr-name { color: #000; }
+
+.inspector__attr-value { color: #00f; }
 
 /* console v. 0.1.0 28.03.2017 @ filip-swinarski */
 

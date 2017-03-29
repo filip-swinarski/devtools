@@ -1,93 +1,99 @@
-/* inspector v. 0.1.0 28.03.2017 @ filip-swinarski */
+/* inspector v. 0.1.1 29.03.2017 @ filip-swinarski */
 
-.row {
+.inspector {
 
-	white-space: nowrap;
-	color: #444;
-
-	&:hover::before {
-	
-		content: '';
-		width: 100%;
-		height: 20px;;
-		background-color: #efefef;
-		position: absolute;
-		left: 0;
-		z-index: -1;
-	
-	}
-
-}
-
-.opening {
-
-	cursor: pointer;
 	position: relative;
 
-}
+	&__row {
+	
+		white-space: nowrap;
+		color: #444;
 
-.exp {
+		&:hover::before {
+		
+			content: '';
+			width: 100%;
+			height: 20px;;
+			background-color: #efefef;
+			position: absolute;
+			left: 0;
+			z-index: -1;
+		
+		}
 
-	display: none;
+		&--opening {
+		
+			cursor: pointer;
+			position: relative;
 
-	& > .opening::after {
+		}
 
-		content: '';
+		&--expanded ~ .inspector__exp {
+
+			display: block;
+
+		}
+	
+	}
+
+	&__exp {
+	
 		display: none;
-		border-left: 6px solid #bbb;
-		border-top: 4px solid transparent;
-		border-bottom: 4px solid transparent;
-		position: absolute;
-		top: 8px;
-		left: -8px;
+		margin-left: 20px;
 
+		& > .inspector__row--opening::after {
+
+			content: '';
+			display: none;
+			border-left: 6px solid #bbb;
+			border-top: 4px solid transparent;
+			border-bottom: 4px solid transparent;
+			position: absolute;
+			top: 8px;
+			left: -8px;
+
+		}
+
+		& > .inspector__row--collapsed::after {
+
+			display: block;
+			transform: rotate(0);
+			transition: transform .5s;
+
+		}
+
+		& > .inspector__row--expanded::after {
+
+			display: block;
+			transform: rotate(90deg);
+			transition: transform .5s;
+
+		}
+	
 	}
 
-	& > .opening.collapsed::after {
+	& > .inspector__exp {
 
 		display: block;
-		transform: rotate(0);
-		transition: transform .5s;
 
 	}
 
-	& > .opening.expanded::after {
+	&__tag-name {
 
-		display: block;
-		transform: rotate(90deg);
-		transition: transform .5s;
+		color: #800080;
+
+	}
+
+	&__attr-name {
+
+		color: #000;
+
+	}
+
+	&__attr-value {
+
+		color: #00f;
 
 	}
 
 }
-
-.display > .exp {
-
-	display: block;
-
-}
-
-.expanded ~ .exp {
-
-	display: block;
-
-}
-
-.tag-name {
-
-	color: #800080;
-
-}
-
-.attr-name {
-
-	color: #000;
-
-}
-
-.attr-value {
-
-	color: #00f;
-
-}
-

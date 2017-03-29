@@ -1,4 +1,4 @@
-/* render_dom.js, v. 0.1.3, 28.03.2017, @ filip-swinarski */
+/* render_dom.js, v. 0.1.4, 29.03.2017, @ filip-swinarski */
 
 let renderDOM = (elem, parentEl, level) => {
 
@@ -9,12 +9,11 @@ let renderDOM = (elem, parentEl, level) => {
 	let row1 = document.createElement('div');
 	let row2 = elem.children.length ? document.createElement('div') : document.createElement('span');
 	
-	wrapper.style.marginLeft = '20px';
-	row1.classList.add('row');
-	row1.classList.add('opening');
+	row1.classList.add('inspector__row');
+	row1.classList.add('inspector__row--opening');
 
-	row2.classList.add('row');
-	row2.classList.add('closing');
+	row2.classList.add('inspector__row');
+	row2.classList.add('inspector__row--closing');
 	
 	let row1ElementTypeSpan = document.createElement('span');
 	let row1OpenArrow = document.createElement('span');
@@ -23,8 +22,8 @@ let renderDOM = (elem, parentEl, level) => {
 	let row2OpenArrow = document.createElement('span');
 	let row2CloseArrow = document.createElement('span');
 	
-	row1ElementTypeSpan.classList.add('tag-name');
-	row2ElementTypeSpan.classList.add('tag-name'); 
+	row1ElementTypeSpan.classList.add('inspector__tag-name');
+	row2ElementTypeSpan.classList.add('inspector__tag-name'); 
 	row1OpenArrow.innerText =  '<';
 	row1CloseArrow.innerText =  '>';
 	row1ElementTypeSpan.innerText = elem.localName;
@@ -38,8 +37,8 @@ let renderDOM = (elem, parentEl, level) => {
 			let attrEqualSpan = document.createElement('span');
 			let attrValueSpan = document.createElement('span');
 			
-			attrNameSpan.classList.add('attr-name');
-			attrValueSpan.classList.add('attr-value');
+			attrNameSpan.classList.add('inspector__attr-name');
+			attrValueSpan.classList.add('inspector__attr-value');
 			attrNameSpan.innerText = ' ' + attr.localName;
 			attrEqualSpan.innerText = '=';
 			attrValueSpan.innerText = '"' + attr.value + '"';
@@ -51,21 +50,20 @@ let renderDOM = (elem, parentEl, level) => {
 	
 	row1.appendChild(row1CloseArrow);
 	wrapper.appendChild(row1);
-	wrapper.classList.add('exp');
+	wrapper.classList.add('inspector__exp');
 	
 	if (elem.text && elem.text.length) {
 		
 		let textEl = document.createElement('div');
 		
-		textEl.style.marginLeft = '20px';
-		textEl.classList.add('exp');
+		textEl.classList.add('inspector__exp');
 		textEl.innerText = elem.text.trim();
 		wrapper.appendChild(textEl)
 
 		if (level < 2)
-			row1.classList.add('expanded');
+			row1.classList.add('inspector__row--expanded');
 		else
-			row1.classList.add('collapsed');
+			row1.classList.add('inspector__row--collapsed');
 	}
 	
 	if (elem.children.length)
@@ -74,9 +72,9 @@ let renderDOM = (elem, parentEl, level) => {
 			renderDOM(el, wrapper, level);
 
 			if (level < 2)
-				row1.classList.add('expanded');
+				row1.classList.add('inspector__row--expanded');
 			else
-				row1.classList.add('collapsed');
+				row1.classList.add('inspector__row--collapsed');
 		});
 
 	row2OpenArrow.innerText =  '</';
@@ -93,8 +91,8 @@ let renderDOM = (elem, parentEl, level) => {
 	
 	row1.addEventListener('click', (e) => {
 		e.preventDefault();
-		row1.classList.toggle('expanded')
-		row1.classList.toggle('collapsed')
+		row1.classList.toggle('inspector__row--expanded')
+		row1.classList.toggle('inspector__row--collapsed')
 	}, false);
 	
 	parentEl.appendChild(wrapper);
