@@ -1,4 +1,4 @@
-/* base v. 0.1.4 29.03.2017 @ filip-swinarski */
+/* base v. 0.1.5 30.03.2017 @ filip-swinarski */
 
 // temp
 .body {
@@ -11,6 +11,12 @@
 .tools {
 
 	font-size: 16px;
+
+	&__panel {
+	
+		position: relative;
+
+	}
 
 }
 

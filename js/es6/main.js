@@ -1,4 +1,4 @@
-/* main.js 0.1.0 27.03.2017 @ filip swinarski */
+/* main.js 0.1.1 30.03.2017 @ filip swinarski */
 
 import {loadStyles} from './modules/load_styles.js';
 import {renderInspector} from './modules/render_inspector.js';

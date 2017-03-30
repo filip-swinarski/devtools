@@ -1,4 +1,4 @@
-/* console v. 0.1.1 28.03.2017 @ filip-swinarski */
+/* console v. 0.1.2 30.03.2017 @ filip-swinarski */
 
 .console {
 
@@ -16,8 +16,101 @@
 		height: 30px;
 		margin: 0;
 		padding: 0;
+		text-indent: 30px;
 
 	}
 
+	&__prompt {
+	
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 30px;
+		height: 30px;
+
+		&::before {
+		
+			content: '>>';
+			display: block;
+			position: absolute;
+			top: 3px;
+			left: 5px;
+			height: 10px;
+			color: $light-gray; 
+
+		}
+	
+	}
+
+	&__msg-i {
+	
+		color: $light-gray;
+		padding: 5px 5px 5px 25px;
+	
+	}
+
+	&__msg-r {
+	
+		color: $default-color;
+		padding: 5px 5px 5px 25px;
+
+		&--err {
+		
+			color: $err-color;
+			background-color: $err-bg-color;
+
+		}
+	
+	}
+
+	&__msg-rprompt {
+	
+		width: 25px;
+		position: relative;
+
+		&::before {
+		
+			content: '<=';
+			display: block;
+			position: absolute;
+			left: -20px;
+			top: 3px;
+			font-size: 12px;
+		
+		}
+	
+	}
+
+	&__msg-iprompt {
+	
+		width: 25px;
+		position: relative;
+
+		&::before {
+		
+			content: '>>';
+			display: block;
+			position: absolute;
+			left: -20px;
+		
+		}
+	}
+
+	&__err-prompt {
+	
+		width: 25px;
+		position: relative;
+
+		&::before {
+		
+			content: 'x';
+			display: block;
+			position: absolute;
+			left: -17px;
+			top: -2px;
+		
+		}
+	
+	}
 }
 

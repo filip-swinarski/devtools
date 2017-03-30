@@ -1,4 +1,4 @@
-/* inspector v. 0.1.2 29.03.2017 @ filip-swinarski */
+/* inspector v. 0.1.3 30.03.2017 @ filip-swinarski */
 
 .inspector {
 
@@ -18,14 +18,14 @@
 	&__row {
 	
 		white-space: nowrap;
-		color: #444;
+		color: $dark-gray;
 
 		&:hover::before {
 		
 			content: '';
 			width: 100%;
 			height: 20px;;
-			background-color: #efefef;
+			background-color: $hover-bg-color;
 			position: absolute;
 			left: 0;
 			z-index: -1;
@@ -85,19 +85,19 @@
 
 	&__tag-name {
 
-		color: #800080;
+		color: $tag-color;
 
 	}
 
 	&__attr-name {
 
-		color: #000;
+		color: $default-color;
 
 	}
 
 	&__attr-value {
 
-		color: #00f;
+		color: $attr-color;
 
 	}
 
