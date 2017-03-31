@@ -18,11 +18,11 @@ consoleInputPrompt.classList.add('console__prompt');
 
 let renderConsole = (panel) => {
 
-	consoleContainer.appendChild(consoleInputPrompt);
-	consoleContainer.appendChild(consoleDisplay);
-	consoleContainer.appendChild(consoleInput);
-	panel.appendChild(consoleContainer);
-	consoleListen();
+    consoleContainer.appendChild(consoleInputPrompt);
+    consoleContainer.appendChild(consoleDisplay);
+    consoleContainer.appendChild(consoleInput);
+    panel.appendChild(consoleContainer);
+    consoleListen();
 
 }
 

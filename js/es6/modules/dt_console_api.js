@@ -3,7 +3,7 @@
 import {consoleLog} from './console_log.js';
 
 let log = (value, str = '') => {
-	consoleLog(str, value);
+    consoleLog(str, value);
 }
 
 export {log};

@@ -4,9 +4,9 @@ import {consoleDisplay} from './render_console.js';
 
 let consoleLog = (str, value) => {
 
-	let log = new CustomEvent('log', {detail: [str, value]});
+    let log = new CustomEvent('log', {detail: [str, value]});
 
-	consoleDisplay.dispatchEvent(log);
+    consoleDisplay.dispatchEvent(log);
 
 }
 

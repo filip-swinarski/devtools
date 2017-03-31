@@ -1,8 +1,9 @@
-/* console_listen.js, v. 0.1.3, 30.03.2017, @ filip-swinarski */
+/* console_listen.js, v. 0.1.4, 31.03.2017, @ filip-swinarski */
 
 import {consoleDisplay} from './render_console.js';
 import {consoleInput} from './render_console.js';
 import {renderConsoleMessage} from './render_console_message.js';
+import {globalEval} from './global_eval.js';
 
 let consoleListen = () => {
 
@@ -44,7 +45,7 @@ let consoleListen = () => {
 
         let row = document.createElement('div');
 
-		row.innerHTML = renderConsoleMessage(e.detail);
+        row.innerHTML = renderConsoleMessage(e.detail);
         row.classList.add('console__row');
         consoleDisplay.appendChild(row);
     }, false);
@@ -53,7 +54,8 @@ let consoleListen = () => {
     
         if (e.keyCode === 13) {
 
-			let value = window.eval(consoleInput.value); // window.eval to work only in global scope
+            // let value = window.eval(consoleInput.value); // window.eval to work only in global scope
+            let value = globalEval(consoleInput.value);
 
             DTConsole.log(value, consoleInput.value);	
             consoleInput.value = '';
