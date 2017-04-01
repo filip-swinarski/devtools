@@ -1,116 +1,120 @@
-/* console v. 0.1.2 30.03.2017 @ filip-swinarski */
+/* console v. 0.1.3 01.04.2017 @ filip-swinarski */
 
 .console {
 
-	&__display {
-	
-		border: 1px solid $border-color;
-		min-height: 50px;
+    &__display {
+    
+        border: 1px solid $border-color;
+        min-height: 50px;
 
-	}
+    }
 
-	&__input {
-	
-		border: 1px solid $border-color;
-		width: 100%;
-		height: 30px;
-		margin: 0;
-		padding: 0;
-		text-indent: 30px;
+    &__input {
+    
+        border: 1px solid $border-color;
+        width: calc(100% - 2px);
+        height: 30px;
+        margin: 0;
+        padding: 0;
+        text-indent: 30px;
 
-	}
+    }
 
-	&__prompt {
-	
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		width: 30px;
-		height: 30px;
+    &__prompt {
+    
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 30px;
+        height: 30px;
 
-		&::before {
-		
-			content: '>>';
-			display: block;
-			position: absolute;
-			top: 3px;
-			left: 5px;
-			height: 10px;
-			color: $light-gray; 
+        &::before {
+        
+            content: '>>';
+            display: block;
+            position: absolute;
+            top: 3px;
+            left: 5px;
+            height: 10px;
+            color: $light-gray; 
 
-		}
-	
-	}
+        }
+    
+    }
 
-	&__msg-i {
-	
-		color: $light-gray;
-		padding: 5px 5px 5px 25px;
-	
-	}
+    &__msg-i {
+    
+        color: $light-gray;
+        padding: 5px 5px 5px 25px;
+    
+    }
 
-	&__msg-r {
-	
-		color: $default-color;
-		padding: 5px 5px 5px 25px;
+    &__msg-r {
+    
+        color: $default-color;
+        padding: 5px 5px 5px 25px;
 
-		&--err {
-		
-			color: $err-color;
-			background-color: $err-bg-color;
+        &--err {
+        
+            color: $err-color;
+            background-color: $err-bg-color;
 
-		}
-	
-	}
+        }
+    
+    }
 
-	&__msg-rprompt {
-	
-		width: 25px;
-		position: relative;
+    &__msg-rprompt {
+    
+        width: 25px;
+        position: relative;
+        color: $light-gray;
 
-		&::before {
-		
-			content: '<=';
-			display: block;
-			position: absolute;
-			left: -20px;
-			top: 3px;
-			font-size: 12px;
-		
-		}
-	
-	}
+        &::before {
+        
+            content: '<=';
+            display: block;
+            position: absolute;
+            left: -20px;
+            top: 3px;
+            font-size: 12px;
+        
+        }
+    
+    }
 
-	&__msg-iprompt {
-	
-		width: 25px;
-		position: relative;
+    &__msg-iprompt {
+    
+        width: 25px;
+        position: relative;
 
-		&::before {
-		
-			content: '>>';
-			display: block;
-			position: absolute;
-			left: -20px;
-		
-		}
-	}
+        &::before {
+        
+            content: '>>';
+            display: block;
+            position: absolute;
+            left: -20px;
+            font-size: 12px;
+        
+        }
+    }
 
-	&__err-prompt {
-	
-		width: 25px;
-		position: relative;
+    &__err-prompt {
+    
+        width: 25px;
+        position: relative;
 
-		&::before {
-		
-			content: 'x';
-			display: block;
-			position: absolute;
-			left: -17px;
-			top: -2px;
-		
-		}
-	
-	}
+        &::before {
+        
+            content: 'x';
+            display: block;
+            position: absolute;
+            left: -17px;
+            top: 0;
+            font-size: 12px;
+        
+        }
+    
+    }
+
 }
 

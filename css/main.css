@@ -1,13 +1,13 @@
 /* main */
 /* variables v. 0.1.1 30.03.2017 @ filip-swinarski */
-/* base v. 0.1.5 30.03.2017 @ filip-swinarski */
+/* base v. 0.1.6 01.04.2017 @ filip-swinarski */
 .body { width: 100%; height: 100%; }
 
-.tools { font-size: 16px; }
+.tools { font-size: 14px; font-family: 'Space Mono', monospace; }
 
 .tools__panel { position: relative; }
 
-/* inspector v. 0.1.3 30.03.2017 @ filip-swinarski */
+/* inspector v. 0.1.4 01.04.2017 @ filip-swinarski */
 .inspector__display { position: relative; border: 1px solid #bcbcbc; }
 
 .inspector__display > .inspector__exp { display: block; }
@@ -16,17 +16,19 @@
 
 .inspector__row:hover::before { content: ''; width: 100%; height: 20px; background-color: #efefef; position: absolute; left: 0; z-index: -1; }
 
-.inspector__row--opening { cursor: pointer; position: relative; }
+.inspector__row--opening { cursor: pointer; }
 
 .inspector__row--expanded ~ .inspector__exp { display: block; }
 
 .inspector__exp { display: none; margin-left: 20px; }
 
-.inspector__exp > .inspector__row--opening::after { content: ''; display: none; border-left: 6px solid #bbb; border-top: 4px solid transparent; border-bottom: 4px solid transparent; position: absolute; top: 8px; left: -8px; }
+.inspector__tag-open { position: relative; }
 
-.inspector__exp > .inspector__row--collapsed::after { display: block; transform: rotate(0); transition: transform .5s; }
+.inspector__tag-open::after { content: ''; display: none; border-left: 6px solid #bbb; border-top: 4px solid transparent; border-bottom: 4px solid transparent; position: absolute; top: 5px; left: -8px; }
 
-.inspector__exp > .inspector__row--expanded::after { display: block; transform: rotate(90deg); transition: transform .5s; }
+.inspector__tag-open--collapsed::after { display: block; transform: rotate(0); transition: transform .5s; }
+
+.inspector__tag-open--expanded::after { display: block; transform: rotate(90deg); transition: transform .5s; }
 
 .inspector__tag-name { color: #800080; }
 
@@ -34,10 +36,10 @@
 
 .inspector__attr-value { color: #00f; }
 
-/* console v. 0.1.2 30.03.2017 @ filip-swinarski */
+/* console v. 0.1.3 01.04.2017 @ filip-swinarski */
 .console__display { border: 1px solid #bcbcbc; min-height: 50px; }
 
-.console__input { border: 1px solid #bcbcbc; width: 100%; height: 30px; margin: 0; padding: 0; text-indent: 30px; }
+.console__input { border: 1px solid #bcbcbc; width: calc(100% - 2px); height: 30px; margin: 0; padding: 0; text-indent: 30px; }
 
 .console__prompt { position: absolute; left: 0; bottom: 0; width: 30px; height: 30px; }
 
@@ -49,17 +51,17 @@
 
 .console__msg-r--err { color: #a93226; background-color: #fadbd8; }
 
-.console__msg-rprompt { width: 25px; position: relative; }
+.console__msg-rprompt { width: 25px; position: relative; color: #acacac; }
 
 .console__msg-rprompt::before { content: '<='; display: block; position: absolute; left: -20px; top: 3px; font-size: 12px; }
 
 .console__msg-iprompt { width: 25px; position: relative; }
 
-.console__msg-iprompt::before { content: '>>'; display: block; position: absolute; left: -20px; }
+.console__msg-iprompt::before { content: '>>'; display: block; position: absolute; left: -20px; font-size: 12px; }
 
 .console__err-prompt { width: 25px; position: relative; }
 
-.console__err-prompt::before { content: 'x'; display: block; position: absolute; left: -17px; top: -2px; }
+.console__err-prompt::before { content: 'x'; display: block; position: absolute; left: -17px; top: 0; font-size: 12px; }
 
 /* browser_info v. 0.1.1 30.03.2017 @ filip-swinarski */
 .browser__display { border: 1px solid #bcbcbc; }

@@ -1,104 +1,111 @@
-/* inspector v. 0.1.3 30.03.2017 @ filip-swinarski */
+/* inspector v. 0.1.4 01.04.2017 @ filip-swinarski */
 
 .inspector {
 
-	&__display {
+    &__display {
 
-		position: relative;
-		border: 1px solid $border-color;
+        position: relative;
+        border: 1px solid $border-color;
 
-		& > .inspector__exp {
+        & > .inspector__exp {
 
-			display: block;
+            display: block;
 
-		}
+        }
 
-	}
+    }
 
-	&__row {
-	
-		white-space: nowrap;
-		color: $dark-gray;
+    &__row {
+    
+        white-space: nowrap;
+        color: $dark-gray;
 
-		&:hover::before {
-		
-			content: '';
-			width: 100%;
-			height: 20px;;
-			background-color: $hover-bg-color;
-			position: absolute;
-			left: 0;
-			z-index: -1;
-		
-		}
+        &:hover::before {
+        
+            content: '';
+            width: 100%;
+            height: 20px;;
+            background-color: $hover-bg-color;
+            position: absolute;
+            left: 0;
+            z-index: -1;
+        
+        }
 
-		&--opening {
-		
-			cursor: pointer;
-			position: relative;
+        &--opening {
+        
+            cursor: pointer;
 
-		}
+        }
 
-		&--expanded ~ .inspector__exp {
+        &--expanded ~ .inspector__exp {
 
-			display: block;
+            display: block;
 
-		}
-	
-	}
+        }
+    
+    }
 
-	&__exp {
-	
-		display: none;
-		margin-left: 20px;
+    &__exp {
+    
+        display: none;
+        margin-left: 20px;
+    
+    }
 
-		& > .inspector__row--opening::after {
 
-			content: '';
-			display: none;
-			border-left: 6px solid #bbb;
-			border-top: 4px solid transparent;
-			border-bottom: 4px solid transparent;
-			position: absolute;
-			top: 8px;
-			left: -8px;
+    &__tag-open {
 
-		}
+        position: relative;
 
-		& > .inspector__row--collapsed::after {
+        &::after {
 
-			display: block;
-			transform: rotate(0);
-			transition: transform .5s;
+            content: '';
+            display: none;
+            border-left: 6px solid #bbb;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            position: absolute;
+            top: 5px;
+            left: -8px;
 
-		}
+        }
+    
+        &--collapsed::after {
 
-		& > .inspector__row--expanded::after {
+            display: block;
+            transform: rotate(0);
+            transition: transform .5s;
 
-			display: block;
-			transform: rotate(90deg);
-			transition: transform .5s;
+        }
 
-		}
-	
-	}
+        &--expanded::after {
 
-	&__tag-name {
+            display: block;
+            transform: rotate(90deg);
+            transition: transform .5s;
 
-		color: $tag-color;
+        }
+    
+    }
 
-	}
 
-	&__attr-name {
+    &__tag-name {
 
-		color: $default-color;
+        color: $tag-color;
 
-	}
+    }
 
-	&__attr-value {
+    &__attr-name {
 
-		color: $attr-color;
+        color: $default-color;
 
-	}
+    }
+
+    &__attr-value {
+
+        color: $attr-color;
+
+    }
 
 }

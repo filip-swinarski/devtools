@@ -1,4 +1,4 @@
-/* render_dom.js, v. 0.1.4, 29.03.2017, @ filip-swinarski */
+/* render_dom.js, v. 0.1.5, 01.04.2017, @ filip-swinarski */
 
 let renderDOM = (elem, parentEl, level) => {
 
@@ -11,7 +11,6 @@ let renderDOM = (elem, parentEl, level) => {
     
     row1.classList.add('inspector__row');
     row1.classList.add('inspector__row--opening');
-
     row2.classList.add('inspector__row');
     row2.classList.add('inspector__row--closing');
     
@@ -24,6 +23,10 @@ let renderDOM = (elem, parentEl, level) => {
     
     row1ElementTypeSpan.classList.add('inspector__tag-name');
     row2ElementTypeSpan.classList.add('inspector__tag-name'); 
+    row1OpenArrow.classList.add('inspector__tag-open');
+    row1CloseArrow.classList.add('inspector__tag-close');
+    row2OpenArrow.classList.add('inspector__tag-open');
+    row2CloseArrow.classList.add('inspector__tag-close');
     row1OpenArrow.innerText =  '<';
     row1CloseArrow.innerText =  '>';
     row1ElementTypeSpan.innerText = elem.localName;
@@ -60,10 +63,14 @@ let renderDOM = (elem, parentEl, level) => {
         textEl.innerText = elem.text.trim();
         wrapper.appendChild(textEl)
 
-        if (level < 2)
+        if (level < 2) {
             row1.classList.add('inspector__row--expanded');
-        else
+            row1OpenArrow.classList.add('inspector__tag-open--expanded');
+        } else {
             row1.classList.add('inspector__row--collapsed');
+            row1OpenArrow.classList.add('inspector__tag-open--collapsed');
+        }
+
     }
     
     if (elem.children.length)
@@ -71,10 +78,14 @@ let renderDOM = (elem, parentEl, level) => {
         [].slice.call(elem.children).forEach((el) => {
             renderDOM(el, wrapper, level);
 
-            if (level < 2)
+            if (level < 2) {
                 row1.classList.add('inspector__row--expanded');
-            else
+                row1OpenArrow.classList.add('inspector__tag-open--expanded');
+            } else {
                 row1.classList.add('inspector__row--collapsed');
+                row1OpenArrow.classList.add('inspector__tag-open--collapsed');
+            }
+
         });
 
     row2OpenArrow.innerText =  '</';
@@ -93,6 +104,8 @@ let renderDOM = (elem, parentEl, level) => {
         e.preventDefault();
         row1.classList.toggle('inspector__row--expanded')
         row1.classList.toggle('inspector__row--collapsed')
+        row1OpenArrow.classList.toggle('inspector__tag-open--expanded');
+        row1OpenArrow.classList.toggle('inspector__tag-open--collapsed');
     }, false);
     
     parentEl.appendChild(wrapper);
