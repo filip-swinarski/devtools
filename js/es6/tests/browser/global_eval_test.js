@@ -1,9 +1,7 @@
-/* global_eval.js, v. 0.1.0, 31.03.2017, @ filip-swinarski */
+// global eval test
 
-// eval - runs block scope declarations via script injection
-// otherwise standard eval used 
-// - think if not use injection exclusively
-// returns value
+const assert = chai.assert;
+
 const globalEval = (str) => {
 
     'use strict'; // prevent creating local variables with standard eval
@@ -26,4 +24,12 @@ const globalEval = (str) => {
     }
 }
 
-export {globalEval};
+describe('global eval var declarations', () => {
+    
+    it('should create global variable', () => {
+        let str = 'var myVariable = 2;';
+        globalEval(str);
+        assert(window.myVariable === 2, 'does not create global variable')
+    });
+
+});

@@ -2,12 +2,13 @@
 
 import * as mocha from 'mocha';
 import * as chai from 'chai';
-import {foo} from '../modules/foo.js';
+// import {foo} from '../modules/foo.js';
 
 let assert = chai.assert;
 let expect = chai.expect;
 let should = chai.should();
 let n = 6;
+let foo = () => {return 1;}
 
 describe('foo function', () => {
     
