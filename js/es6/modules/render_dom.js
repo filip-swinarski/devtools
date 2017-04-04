@@ -1,4 +1,6 @@
-/* render_dom.js, v. 0.1.5, 01.04.2017, @ filip-swinarski */
+/* render_dom.js, v. 0.1.6, 04.04.2017, @ filip-swinarski */
+
+import {renderPopup} from './render_popup.js';
 
 let renderDOM = (elem, parentEl, level) => {
 
@@ -106,6 +108,11 @@ let renderDOM = (elem, parentEl, level) => {
         row1.classList.toggle('inspector__row--collapsed')
         row1OpenArrow.classList.toggle('inspector__tag-open--expanded');
         row1OpenArrow.classList.toggle('inspector__tag-open--collapsed');
+    }, false);
+
+    row1.addEventListener('click', (e) => {
+        e.preventDefault;
+        renderPopup(elem);
     }, false);
     
     parentEl.appendChild(wrapper);

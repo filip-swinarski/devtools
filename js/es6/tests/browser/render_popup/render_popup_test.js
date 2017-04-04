@@ -1,11 +1,12 @@
-// render popup test
+// render_popup_test.js, v. 0.1.0, 04.04.2017 @ filip-swinarski
 
 const assert = chai.assert;
 const mockEl = document.createElement('div');
-const devTools = document.getElementById('dev_tools');
+const devTools = document.querySelector('#dev_tools');
 
 let renderPopup = (element) => {
 
+    let container = document.querySelector('#dev_tools');
     let popup = document.createElement('div');
     let attributeListWrapper = document.createElement('div');
     let styleListWrapper = document.createElement('div');
@@ -15,7 +16,10 @@ let renderPopup = (element) => {
     let attributeListHeader = document.createElement('div');
     let styleListHeader = document.createElement('div');
     let filteredAttributes = [].filter.call(element.attributes, attr => attr.name !== 'style');
-    let inlineStyles = ''.split.call(element.attributes.style.value, '; ');
+    let inlineStyles = [];
+
+    if (element.attributes && element.attributes.style)
+        inlineStyles = ''.split.call(element.attributes.style.value, '; ');
 
     for (let attr in filteredAttributes) {
         
@@ -58,7 +62,7 @@ let renderPopup = (element) => {
     popup.appendChild(closeBtn);
     popup.appendChild(attributeListWrapper);
     popup.appendChild(styleListWrapper);
-    devTools.appendChild(popup);
+    container.appendChild(popup);
 };
 
 mockEl.id = 'test';
@@ -110,7 +114,7 @@ describe('Render a popup window content - attributes section', () => {
 describe('Render a list of element attributes', () => {
 
     let popup = document.querySelector('.popup');
-    let attributeSection = popup.querySelectorAll('.popup__section')[1];
+    let attributeSection = popup.querySelectorAll('.popup__section')[0];
     let classList = attributeSection.classList;
     let children = attributeSection.children;
     let numberOfAttributes = mockEl.attributes.length;
@@ -128,7 +132,7 @@ describe('Render a list of element attributes', () => {
     });
 
     it('should render certain amount of attributes', () => {
-        if (filteredAttributes.length)
+        if (mockEl.attributes.style)
             numberOfAttributes -= 1;
         assert(attributeList.length === numberOfAttributes, 'different number of list elements');
     });
@@ -154,7 +158,7 @@ describe('Render a popup window content - styles section', () => {
         assert(classList[0] === 'popup__section', 'did not render a .popup_-section');
     });
 
-    it('should render .popup__section--attributes element', () => {
+    it('should render .popup__section--styles element', () => {
         assert(classList[1] === 'popup__section--styles', 'did not render a .popup__section--styles');
     });
 

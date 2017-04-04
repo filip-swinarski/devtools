@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html lang="pl">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>dev tools</title>
-		<link rel="stylesheet" href="css/main.css" />
-		<script src="node_modules/babel-polyfill/browser.js"></script>
-	</head>
-	<body>
-        <ul id="test-list">
-            <li class="test">
-                <p><a href="#" data-index="1">Lorem ipsum</a></p>
-            </li>
-            <li class="test">
-                <p><a href="#" data-index="1">Lorem ipsum</a></p>
-            </li>
-            <li class="test">
-                <p><a href="#" data-index="1">Lorem ipsum</a></p>
-            </li>
-            <li class="test">
-                <p><a href="#" data-index="1">Lorem ipsum</a></p>
-            </li>
-            <li class="test">
-                <p><a href="#" data-index="1">Lorem ipsum</a></p>
-            </li>
-            <li class="test">
-                <p><a href="#" data-index="1">Lorem ipsum</a></p>
-            </li>
-            <li class="test">
-            </li>
-        </ul>
-		<script src="js/main.js"></script>
-		<script>
-			
-			// test
-			
-			let bool = true;
-			let str = 'A String';
-			let num = 42;
-			let und;
-			let symb = Symbol('symbol');
-			let arr = [0, 1, 2, 'a', 'b', 'c'];
-			let obj = {a: 1, b: 2, c: 'a', d: 'd'};
-			let func = x => x * 2;
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>dev tools</title>
+        <link rel="stylesheet" href="css/main.css" />
+        <script src="node_modules/babel-polyfill/browser.js"></script>
+    </head>
+    <body>
+    <ul id="test-list">
+        <li class="test">
+            <p><a href="#" data-index="1">Lorem ipsum</a></p>
+        </li>
+        <li class="test">
+            <p><a href="#" data-index="1">Lorem ipsum</a></p>
+        </li>
+        <li class="test">
+            <p><a href="#" data-index="1">Lorem ipsum</a></p>
+        </li>
+        <li class="test">
+            <p><a href="#" data-index="1">Lorem ipsum</a></p>
+        </li>
+        <li class="test">
+            <p><a href="#" data-index="1">Lorem ipsum</a></p>
+        </li>
+        <li class="test">
+            <p><a href="#" data-index="1">Lorem ipsum</a></p>
+        </li>
+        <li class="test">
+        </li>
+    </ul>
+    <script src="js/main.js"></script>
+    <script>
+        
+        // test
+        
+        let bool = true;
+        let str = 'A String';
+        let num = 42;
+        let und;
+        let symb = Symbol('symbol');
+        let arr = [0, 1, 2, 'a', 'b', 'c'];
+        let obj = {a: 1, b: 2, c: 'a', d: 'd'};
+        let func = x => x * 2;
 
-			DTConsole.log(bool);
-			DTConsole.log(str);
-			DTConsole.log(num);
-			DTConsole.log(und);
-			// DTConsole.log(symb);
-			DTConsole.log(arr);
-			DTConsole.log(obj);
-			DTConsole.log(func);
-			xxx(); // error
-			
-		</script>
-	</body>
+        DTConsole.log(bool);
+        DTConsole.log(str);
+        DTConsole.log(num);
+        DTConsole.log(und);
+        // DTConsole.log(symb);
+        DTConsole.log(arr);
+        DTConsole.log(obj);
+        DTConsole.log(func);
+        xxx(); // error
+        
+    </script>
+    </body>
 </html>

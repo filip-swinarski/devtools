@@ -1,4 +1,4 @@
-// global eval test
+// global_eval_test.js, v. 0.1.0, 04.04.2017 @ filip-swinarski
 
 const assert = chai.assert;
 
