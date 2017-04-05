@@ -1,27 +1,26 @@
-/* render_dom.js, v. 0.1.6, 04.04.2017, @ filip-swinarski */
+/* render_dom.js, v. 0.1.7, 05.04.2017, @ filip-swinarski */
 
 import {renderPopup} from './render_popup.js';
 
 let renderDOM = (elem, parentEl, level) => {
 
-    if (elem.id === 'inspector_display')
+    if (elem.id === 'dev_tools')
         return;
 
     let wrapper = document.createElement('div');
     let row1 = document.createElement('div');
     let row2 = elem.children.length ? document.createElement('div') : document.createElement('span');
-    
-    row1.classList.add('inspector__row');
-    row1.classList.add('inspector__row--opening');
-    row2.classList.add('inspector__row');
-    row2.classList.add('inspector__row--closing');
-    
     let row1ElementTypeSpan = document.createElement('span');
     let row1OpenArrow = document.createElement('span');
     let row1CloseArrow = document.createElement('span');
     let row2ElementTypeSpan = document.createElement('span');
     let row2OpenArrow = document.createElement('span');
     let row2CloseArrow = document.createElement('span');
+    
+    row1.classList.add('inspector__row');
+    row1.classList.add('inspector__row--opening');
+    row2.classList.add('inspector__row');
+    row2.classList.add('inspector__row--closing');
     
     row1ElementTypeSpan.classList.add('inspector__tag-name');
     row2ElementTypeSpan.classList.add('inspector__tag-name'); 
@@ -75,7 +74,7 @@ let renderDOM = (elem, parentEl, level) => {
 
     }
     
-    if (elem.children.length)
+    if (elem.children.length) {
         level += 1;
         [].slice.call(elem.children).forEach((el) => {
             renderDOM(el, wrapper, level);
@@ -89,6 +88,7 @@ let renderDOM = (elem, parentEl, level) => {
             }
 
         });
+	}
 
     row2OpenArrow.innerText =  '</';
     row2CloseArrow.innerText =  '>';
@@ -102,19 +102,27 @@ let renderDOM = (elem, parentEl, level) => {
     else
         row1.appendChild(row2);
     
-    row1.addEventListener('click', (e) => {
-        e.preventDefault();
-        row1.classList.toggle('inspector__row--expanded')
-        row1.classList.toggle('inspector__row--collapsed')
-        row1OpenArrow.classList.toggle('inspector__tag-open--expanded');
-        row1OpenArrow.classList.toggle('inspector__tag-open--collapsed');
-    }, false);
+	let timestamp;
 
-    row1.addEventListener('click', (e) => {
-        e.preventDefault;
-        renderPopup(elem);
-    }, false);
-    
+	row1.addEventListener('mousedown', () => {
+		timestamp = new Date();
+	}, false);
+
+	row1.addEventListener('mouseup', () => {
+		if (new Date() - timestamp > 150) {
+			renderPopup(elem);
+		} else {
+			row1.classList.toggle('inspector__row--expanded')
+			row1.classList.toggle('inspector__row--collapsed')
+
+			if (row1OpenArrow.classList.contains('inspector__tag-open--expanded') ||
+				row1OpenArrow.classList.contains('inspector__tag-open--collapsed')) {
+				row1OpenArrow.classList.toggle('inspector__tag-open--expanded');
+				row1OpenArrow.classList.toggle('inspector__tag-open--collapsed');
+			}
+		}
+	}, false);
+
     parentEl.appendChild(wrapper);
 }
 export {renderDOM};

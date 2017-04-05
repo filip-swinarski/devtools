@@ -1,0 +1,26 @@
+/* popup v. 0.1.0 04.04.2017 @ filip-swinarski */
+
+.popup {
+
+	position: absolute;
+	top: 0;
+	background-color: #fff;
+	border: 1px solid #000;
+	padding: 10px;
+	width: 80%;
+	height: 80%;
+	top: 50%;
+	transform: translate(10%, -50%);
+
+	&__close {
+
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 5px 10px;
+		cursor: pointer;
+
+	}
+
+}
+
