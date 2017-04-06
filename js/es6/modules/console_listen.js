@@ -1,4 +1,4 @@
-/* console_listen.js, v. 0.1.4, 31.03.2017, @ filip-swinarski */
+/* console_listen.js, v. 0.1.5, 06.04.2017, @ filip-swinarski */
 
 import {consoleDisplay} from './render_console.js';
 import {consoleInput} from './render_console.js';
@@ -43,9 +43,8 @@ let consoleListen = () => {
 
     consoleDisplay.addEventListener('log', (e) => {
 
-        let row = document.createElement('div');
+        let row = renderConsoleMessage(e.detail);
 
-        row.innerHTML = renderConsoleMessage(e.detail);
         row.classList.add('console__row');
         consoleDisplay.appendChild(row);
     }, false);
@@ -54,7 +53,6 @@ let consoleListen = () => {
     
         if (e.keyCode === 13) {
 
-            // let value = window.eval(consoleInput.value); // window.eval to work only in global scope
             let value = globalEval(consoleInput.value);
 
             DTConsole.log(value, consoleInput.value);	
