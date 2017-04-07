@@ -1,4 +1,4 @@
-/* console v. 0.1.3 01.04.2017 @ filip-swinarski */
+/* console v. 0.1.4 07.04.2017 @ filip-swinarski */
 
 .console {
 
@@ -115,6 +115,104 @@
         }
     
     }
+
+	&__undefined {
+	
+		color: $undefined-color;
+	
+	}
+
+	&__number {
+	
+		color: $number-color;
+	
+	}
+
+	&__string {
+	
+		color: $string-color;
+	
+	}
+
+	&__boolean {
+	
+		color: $boolean-color;
+	
+	}
+
+	&__null {
+	
+		color: $null-color;
+	
+	}
+
+	&__key {
+	
+		color: $key-color;
+
+		&::after {
+		
+			content: ': ';
+		
+		}
+	
+	}
+
+	&__index {
+	
+		display: none;
+	
+	}
+
+	&__value:not(:last-child)::after {
+	
+		content: ', ';
+	
+	}
+
+	&__array {
+	
+		&::after {
+		
+			content: ']';
+		
+		}
+
+		&::before {
+		
+			content: '[';
+		
+		}
+	
+	}
+
+	&__object {
+	
+		&::after {
+		
+			content: '}';
+		
+		}
+
+		&::before {
+		
+			content: '{';
+		
+		}
+	
+	}
+
+	&__f-name {
+	
+		color: $fname-color;
+	
+	}
+
+	&__f-key {
+	
+		color: $key-color;
+	
+	}
 
 }
 

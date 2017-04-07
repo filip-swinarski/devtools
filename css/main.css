@@ -1,5 +1,5 @@
 /* main */
-/* variables v. 0.1.1 30.03.2017 @ filip-swinarski */
+/* variables v. 0.1.2 07.04.2017 @ filip-swinarski */
 /* base v. 0.1.6 01.04.2017 @ filip-swinarski */
 .body { width: 100%; height: 100%; }
 
@@ -36,7 +36,7 @@
 
 .inspector__attr-value { color: #00f; }
 
-/* console v. 0.1.3 01.04.2017 @ filip-swinarski */
+/* console v. 0.1.4 07.04.2017 @ filip-swinarski */
 .console__display { border: 1px solid #bcbcbc; min-height: 50px; }
 
 .console__input { border: 1px solid #bcbcbc; width: calc(100% - 2px); height: 30px; margin: 0; padding: 0; text-indent: 30px; }
@@ -62,6 +62,36 @@
 .console__err-prompt { width: 25px; position: relative; }
 
 .console__err-prompt::before { content: 'x'; display: block; position: absolute; left: -17px; top: 0; font-size: 12px; }
+
+.console__undefined { color: #adadad; }
+
+.console__number { color: #0000cc; }
+
+.console__string { color: #cc6600; }
+
+.console__boolean { color: #800000; }
+
+.console__null { color: #800000; }
+
+.console__key { color: #800000; }
+
+.console__key::after { content: ': '; }
+
+.console__index { display: none; }
+
+.console__value:not(:last-child)::after { content: ', '; }
+
+.console__array::after { content: ']'; }
+
+.console__array::before { content: '['; }
+
+.console__object::after { content: '}'; }
+
+.console__object::before { content: '{'; }
+
+.console__f-name { color: #0099ff; }
+
+.console__f-key { color: #800000; }
 
 /* browser_info v. 0.1.1 30.03.2017 @ filip-swinarski */
 .browser__display { border: 1px solid #bcbcbc; padding: 10px; }
