@@ -1,18 +1,11 @@
-/* inspector v. 0.1.5 15.04.2017 @ filip-swinarski */
+/* inspector v. 0.1.4 01.04.2017 @ filip-swinarski */
 
 .inspector {
-
-    &__header {
-    
-        border: 1px solid $border-color;
-        padding: 10px;
-        cursor: pointer;
-    
-    }
 
     &__display {
 
         position: relative;
+        border: 1px solid $border-color;
         overflow: hidden;
 
         & > .inspector__exp {
@@ -23,9 +16,6 @@
 
         &--expanded {
         
-            border-left: 1px solid $border-color;
-            border-right: 1px solid $border-color;
-            border-bottom: 1px solid $border-color;
             height: 400px;
             transition: height .5s;
 
@@ -37,8 +27,7 @@
             transition: height .5s;
             padding: 0;
             margin: 0;
-            border-left: 0 none transparent;
-            border-right: 0 none transparent;
+            border: 0 none transparent;
         
         }
 
@@ -128,7 +117,6 @@
     &__attr-name {
 
         color: $default-color;
-        padding-left: 5px;
 
     }
 

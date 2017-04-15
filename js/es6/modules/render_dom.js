@@ -1,4 +1,4 @@
-/* render_dom.js, v. 0.1.7, 05.04.2017, @ filip-swinarski */
+/* render_dom.js, v. 0.1.8, 15.04.2017, @ filip-swinarski */
 
 import {renderPopup} from './render_popup.js';
 
@@ -43,7 +43,7 @@ let renderDOM = (elem, parentEl, level) => {
             
             attrNameSpan.classList.add('inspector__attr-name');
             attrValueSpan.classList.add('inspector__attr-value');
-            attrNameSpan.innerText = ' ' + attr.localName;
+            attrNameSpan.innerText = attr.localName;
             attrEqualSpan.innerText = '=';
             attrValueSpan.innerText = '"' + attr.value + '"';
             row1.appendChild(attrNameSpan);
@@ -88,7 +88,7 @@ let renderDOM = (elem, parentEl, level) => {
             }
 
         });
-	}
+    }
 
     row2OpenArrow.innerText =  '</';
     row2CloseArrow.innerText =  '>';
@@ -102,26 +102,74 @@ let renderDOM = (elem, parentEl, level) => {
     else
         row1.appendChild(row2);
     
-	let timestamp;
+    let startDate;
+    let tObj;
+    let startX;
+    let startY;
+    let endX;
+    let endY;
+    let distX;
+    let distY;
+    let maxX = 0;
+    let maxY = 0;
 
-	row1.addEventListener('mousedown', () => {
-		timestamp = new Date();
-	}, false);
+    row1.addEventListener('touchstart', (e) => {
+        startDate = new Date();
+        tObj = e.touches[0];
+        startX = tObj.pageX;
+        startY = tObj.pageY;
+    }, false);
+    row1.addEventListener('touchmove', (e) => {
+        tObj = e.changedTouches[0];
+        endX = tObj.pageX;
+        endY = tObj.pageY;
+        distX = endX - startX;
+        distY = endY - startY;
+       
+        if (Math.abs(distX) > maxX)
+            maxX = Math.abs(distX);
+       
+        if (Math.abs(distY) > maxY)
+            maxY = Math.abs(distY);
+       
+    }, false);
+    row1.addEventListener('touchend', (e) => {
+       
+        let endDate = new Date();
+        let dateAmp = endDate - startDate;
+       
+        tObj = e.changedTouches[0];
+        endX = tObj.pageX;
+        endY = tObj.pageY;
+        distX = endX - startX;
+        distY = endY - startY;
+       
+        if (maxY <= 30 && maxX <= 30) {
+           
+            if (dateAmp <= 200) {
+                row1.classList.toggle('inspector__row--expanded')
+                row1.classList.toggle('inspector__row--collapsed')
 
-	row1.addEventListener('mouseup', () => {
-		if (new Date() - timestamp > 150) {
-			renderPopup(elem);
-		} else {
-			row1.classList.toggle('inspector__row--expanded')
-			row1.classList.toggle('inspector__row--collapsed')
+                if (row1OpenArrow.classList.contains('inspector__tag-open--expanded') ||
+                    row1OpenArrow.classList.contains('inspector__tag-open--collapsed')) {
+                    row1OpenArrow.classList.toggle('inspector__tag-open--expanded');
+                    row1OpenArrow.classList.toggle('inspector__tag-open--collapsed');
+                }
 
-			if (row1OpenArrow.classList.contains('inspector__tag-open--expanded') ||
-				row1OpenArrow.classList.contains('inspector__tag-open--collapsed')) {
-				row1OpenArrow.classList.toggle('inspector__tag-open--expanded');
-				row1OpenArrow.classList.toggle('inspector__tag-open--collapsed');
-			}
-		}
-	}, false);
+            } else {
+                renderPopup(elem, row1);
+            }
+           
+        } else {
+            row1.remove();
+            row2.remove();
+            elem.remove();
+        }
+       
+        maxX = 0;
+        maxY = 0;
+
+    }, false);
 
     parentEl.appendChild(wrapper);
 }
