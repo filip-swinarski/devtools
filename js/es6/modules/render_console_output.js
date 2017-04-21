@@ -1,4 +1,4 @@
-// render_console_output.js, v. 0.1.2, 15.04.2017 @ filip-swinarski
+// render_console_output.js, v. 0.1.3, 21.04.2017 @ filip-swinarski
 
 let renderConsoleOutput = (val, element = document.body, index) => {
 
@@ -8,7 +8,6 @@ let renderConsoleOutput = (val, element = document.body, index) => {
 
     checkStr = checkStr.substring(0, checkStr.length-1).toLowerCase();
     output.classList.add(`console__${checkStr}`);
-    console.log(checkStr);
 	
     if (checkStr === 'string' ||
         checkStr === 'number' ||

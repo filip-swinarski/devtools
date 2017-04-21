@@ -1,4 +1,4 @@
-/* render_header.js, v. 0.1.0, 15.04.2017, @ filip-swinarski */
+/* render_header.js, v. 0.1.1, 21.04.2017, @ filip-swinarski */
 
 var renderHeader = (container, expanded) => {
    
@@ -6,7 +6,7 @@ var renderHeader = (container, expanded) => {
     let toggleBtn = document.createElement('span');
     let title = container.id;
    
-    header.id = `${parent.id}_header`;
+    header.id = `${container.id}_header`;
     header.classList.add(`${container.classList[0]}__header`);
     toggleBtn.classList.add(`${container.classList[0]}__toggle`);
     header.innerHTML = `<span class="${title}__title">${title}</span>`;

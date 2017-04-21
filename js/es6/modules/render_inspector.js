@@ -1,4 +1,4 @@
-/* render_inspector.js, v. 0.1.5, 15.04.2017, @ filip-swinarski */
+/* render_inspector.js, v. 0.1.6, 21.04.2017, @ filip-swinarski */
 
 import {renderDOM} from './render_dom.js';
 import {renderHeader} from './render_header.js';
@@ -7,6 +7,7 @@ let renderInspector = (body, panel) => {
 
     const inspectorDisplay = document.createElement('div');
     const inspectorContainer = document.createElement('div');
+	const htmlElem = document.querySelector('html');
     let level = 0;
 
     inspectorContainer.id = 'inspector';
@@ -18,7 +19,7 @@ let renderInspector = (body, panel) => {
     inspectorDisplay.classList.add('inspector__display--expanded');
     inspectorContainer.appendChild(inspectorDisplay);
     panel.appendChild(inspectorContainer);
-    renderDOM(body, inspectorDisplay, level);
+    renderDOM(htmlElem, inspectorDisplay, level);
 
 };
 

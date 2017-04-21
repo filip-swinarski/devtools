@@ -7,10 +7,10 @@
 
 .tools__panel { position: relative; }
 
-/* inspector v. 0.1.4 01.04.2017 @ filip-swinarski */
+/* inspector v. 0.1.6 21.04.2017 @ filip-swinarski */
 .inspector__header { border: 1px solid #bcbcbc; padding: 10px; cursor: pointer; }
 
-.inspector__display { position: relative; overflow: hidden; }
+.inspector__display { position: relative; overflow: auto; }
 
 .inspector__display > .inspector__exp { display: block; }
 
@@ -36,16 +36,18 @@
 
 .inspector__tag-open--expanded::after { display: block; transform: rotate(90deg); transition: transform .5s; }
 
+.inspector__tag-close:last-child { padding-right: 10px; }
+
 .inspector__tag-name { color: #800080; }
 
 .inspector__attr-name { color: #000; padding-left: 5px; }
 
 .inspector__attr-value { color: #00f; }
 
-/* console v. 0.1.4 07.04.2017 @ filip-swinarski */
+/* console v. 0.1.6 21.04.2017 @ filip-swinarski */
 .console__header { border-left: 1px solid #bcbcbc; border-right: 1px solid #bcbcbc; padding: 10px; cursor: pointer; }
 
-.console__display { overflow: hidden; }
+.console__display { overflow: auto; }
 
 .console__display--expanded { border-left: 1px solid #bcbcbc; border-right: 1px solid #bcbcbc; border-top: 1px solid #bcbcbc; height: 400px; transition: height .5s; }
 
@@ -113,7 +115,7 @@
 
 .console__f-key { color: #800000; }
 
-/* browser_info v. 0.1.1 30.03.2017 @ filip-swinarski */
+/* browser_info v. 0.1.2 15.04.2017 @ filip-swinarski */
 .browser__header { border: 1px solid #bcbcbc; padding: 10px; cursor: pointer; }
 
 .browser__display { padding: 10px; overflow: hidden; }
@@ -122,7 +124,7 @@
 
 .browser__display--collapsed { height: 0; transition: height pading-top padding-bottom .5s; padding-top: 0; padding-bottom: 0; border-left: 0 none transparent; border-right: 0 none transparent; }
 
-/* popup v. 0.1.0 04.04.2017 @ filip-swinarski */
+/* popup v. 0.1.1 15.04.2017 @ filip-swinarski */
 .popup { position: absolute; top: 0; background-color: #fff; border: 1px solid #bcbcbc; width: 80%; height: 80%; top: 50%; transform: translate(10%, -50%); }
 
 .popup__close { position: absolute; top: -15px; right: -15px; background-color: #fff; border: 1px solid #bcbcbc; padding: 2px 6px; cursor: pointer; }
