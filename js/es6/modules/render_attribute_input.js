@@ -1,4 +1,4 @@
-/* render_attribute_input.js, v. 0.1.0, 21.04.2017, @ filip-swinarski */
+/* render_attribute_input.js, v. 0.1.1, 05.05.2017, @ filip-swinarski */
 
 let renderAttrInput = (el, display, row, name, value) => {
    
@@ -77,6 +77,11 @@ let renderAttrInput = (el, display, row, name, value) => {
 	input.addEventListener('focus', (e) => {
 		applyBtn.classList.add('popup__list-btn--expanded');
 		applyBtn.classList.remove('popup__list-btn--collapsed');
+	});
+
+	input.addEventListener('blur', (e) => {
+		applyBtn.classList.remove('popup__list-btn--expanded');
+		applyBtn.classList.add('popup__list-btn--collapsed');
 	});
 
 	applyBtn.addEventListener('click', (e) => {

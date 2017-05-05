@@ -1,8 +1,8 @@
-/* apply_button_action.js, v. 0.1.0, 21.04.2017, @ filip-swinarski */
+/* apply_button_action.js, v. 0.1.1, 05.05.2017, @ filip-swinarski */
 
 import {renderAttrInput} from './render_attribute_input.js';
 
-let applyButtonAction = (element, btn, valueLabel, nameLabel, arr, list, row) => {
+let applyButtonAction = (element, btn, valueLabel, nameLabel, arr, list, row, header) => {
 
 	let separator = document.createElement('span');
 	let valueInput = valueLabel.querySelector('input');
@@ -58,6 +58,7 @@ let applyButtonAction = (element, btn, valueLabel, nameLabel, arr, list, row) =>
 
 	nameLabel.classList.add('popup__add-label--collapsed');
 	nameLabel.classList.remove('popup__add-label--expanded');
+	header.classList.remove('popup__header--expanded');
 	valueLabel.classList.add('popup__add-label--collapsed');
 	valueLabel.classList.remove('popup__add-label--expanded');
 	nameInput.value = '';
