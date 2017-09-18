@@ -1,20 +1,18 @@
-/* load _styles.js v. 0.1.2, 04.04.2017, @ filip-swinarski */
+/* load _styles.js v. 0.1.3, 18.09.2017, @ filip-swinarski */
 
-let loadStyles = () => {
+import {rules} from './styles.js';
+import {renderStyles} from './render_styles.js';
 
-    let styles = document.createElement('link');
-    let googleFont = document.createElement('link');
+const loadStyles = () => {
 
-    styles.rel = 'stylesheet';
-    styles.type = 'text/css';
-    styles.media = 'screen';
-    styles.href = './css/main.css';
-    styles.rel = 'stylesheet';
-    styles.type = 'text/css';
-    styles.media = 'screen';
-    styles.href = 'https://googleapis.com/css?family=Space+Mono:400,700&amp;subset=latin-ext';
+    const googleFont = document.createElement('link');
+
+    googleFont.rel = 'stylesheet';
+    googleFont.type = 'text/css';
+    googleFont.media = 'screen';
+    googleFont.href = 'https://googleapis.com/css?family=Space+Mono:400,700&amp;subset=latin-ext';
     document.getElementsByTagName('head')[0].appendChild(googleFont);
-    document.getElementsByTagName('head')[0].appendChild(styles);
+	renderStyles(rules);
 };
 
 export {loadStyles};

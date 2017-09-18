@@ -84,7 +84,7 @@ let renderAttrInput = (el, display, row, name, value) => {
 		applyBtn.classList.add('popup__list-btn--collapsed');
 	});
 
-	applyBtn.addEventListener('click', (e) => {
+	applyBtn.addEventListener('touchstart', (e) => {
    
 		let rowAttrNameElems = row.querySelectorAll('.inspector__attr-name');
 		let rowAttrValueElems = row.querySelectorAll('.inspector__attr-value');

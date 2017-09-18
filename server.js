@@ -15,10 +15,6 @@ const getContent = (req, res) => {
         url = 'index.html';
     else if (req.url === '/js/main.js')
         url = 'js/main.js';
-    else if (req.url === '/css/main.css')
-        url = 'css/main.css';
-	else if (req.url === '/node_modules/babel-polyfill/browser.js')
-		url = 'node_modules/babel-polyfill/browser.js';
 	else
 		return;
 
