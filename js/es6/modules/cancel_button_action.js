@@ -1,9 +1,9 @@
-/* cancel_button_action.js, v. 0.1.0, 05.05.2017, @ filip-swinarski */
+/* cancel_button_action.js, v. 0.1.0, 19.09.2017, @ filip-swinarski */
 
-let cancelButtonAction = (applyBtn, cancelBtn, valueLabel, nameLabel, header) => {
+const cancelButtonAction = (applyBtn, cancelBtn, valueLabel, nameLabel, header) => {
 
-	let valueInput = valueLabel.querySelector('input');
-	let nameInput = nameLabel.querySelector('input');
+	const valueInput = valueLabel.querySelector('input');
+	const nameInput = nameLabel.querySelector('input');
 
 	nameLabel.classList.add('popup__add-label--collapsed');
 	nameLabel.classList.remove('popup__add-label--expanded');

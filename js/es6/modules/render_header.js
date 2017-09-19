@@ -1,10 +1,10 @@
-/* render_header.js, v. 0.1.1, 21.04.2017, @ filip-swinarski */
+/* render_header.js, v. 0.1.1, 19.09.2017, @ filip-swinarski */
 
-var renderHeader = (container, expanded) => {
+const renderHeader = (container, expanded) => {
    
-    let header = document.createElement('div');
-    let toggleBtn = document.createElement('span');
-    let title = container.id;
+    const header = document.createElement('div');
+    const toggleBtn = document.createElement('span');
+    const title = container.id;
    
     header.id = `${container.id}_header`;
     header.classList.add(`${container.classList[0]}__header`);
@@ -22,7 +22,7 @@ var renderHeader = (container, expanded) => {
    
     header.addEventListener('click', (e) => {
        
-        let children = [].filter.call(container.children, el => el.id !== `${parent.id}_header`);
+        const children = [].filter.call(container.children, el => el.id !== `${parent.id}_header`);
        
         toggleBtn.classList.toggle(`${container.classList[0]}__toggle--expanded`);
         toggleBtn.classList.toggle(`${container.classList[0]}__toggle--collapsed`);

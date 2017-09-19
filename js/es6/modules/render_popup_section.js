@@ -1,4 +1,4 @@
-/* render_popup_section.js, v. 0.1.2, 18.09.2017, @ filip-swinarski */
+/* render_popup_section.js, v. 0.1.2, 19.09.2017, @ filip-swinarski */
 
 import {renderAttrInput} from './render_attribute_input.js';
 import {addButtonAction} from './add_button_action.js';
@@ -6,27 +6,25 @@ import {applyButtonAction} from './apply_button_action.js';
 import {cancelButtonAction} from './cancel_button_action.js';
 import {highlightBoxAction} from './highlight_box_action.js';
 
-let renderPopupSection = (id, title, element, row, listWrapper) => {
+const renderPopupSection = (id, title, element, row, listWrapper) => {
 
-	let list = document.createElement('ul');
-	let header = document.createElement('div');
+	const list = document.createElement('ul');
+	const header = document.createElement('div');
+	const regexp1 = new RegExp(/background-color: rgb\(170, 221, 255\) \!important/);
+	const regexp2 = new RegExp(/background-color: \#adf \!important/);
 	let sectionName = '';
 
 	header.innerHTML = `<span class="popup__headline">${title}</span>`;
-	header.classList.add('popup__header');
-	listWrapper.appendChild(header);
-	listWrapper.classList.add('popup__section');
-	listWrapper.classList.add(`popup__section--${sectionName}`);
 
 	if (id === 'attr_list' || id === 'style_list') {
 
-		let addBtn = document.createElement('button');
-		let addApplyBtn = document.createElement('button');
-		let addCancelBtn = document.createElement('button');
-		let nameInput = document.createElement('input');
-		let valueInput = document.createElement('input');
-		let nameInputLabel = document.createElement('label');
-		let valueInputLabel = document.createElement('label');
+		const addBtn = document.createElement('button');
+		const addApplyBtn = document.createElement('button');
+		const addCancelBtn = document.createElement('button');
+		const nameInput = document.createElement('input');
+		const valueInput = document.createElement('input');
+		const nameInputLabel = document.createElement('label');
+		const valueInputLabel = document.createElement('label');
 		let arr;
 		
 		if (id === 'attr_list') {
@@ -67,6 +65,10 @@ let renderPopupSection = (id, title, element, row, listWrapper) => {
 		if (id === 'style_list' && element.attributes && element.attributes.style) {
 			arr = ''.split.call(element.attributes.style.value, '; ')
 			arr = arr.map(rule => rule.replace(';', ''));
+
+			if (row.hasAttribute('data-highlight'))
+				arr = arr.filter(rule => !rule.match(regexp1) && !rule.match(regexp2));
+
 		}
 
 		for (let item in arr) {
@@ -96,22 +98,25 @@ let renderPopupSection = (id, title, element, row, listWrapper) => {
 		}, false);
 	} else if (id === 'highlight_section') {
 
-		let highlightCheckbox = document.createElement('input');
+		const highlightCheckbox = document.createElement('input');
 
 		sectionName = 'highlight';
 		highlightCheckbox.type = 'checkbox';
 		highlightCheckbox.classList.add('popup__highlight');
 		header.appendChild(highlightCheckbox);
 
-		if (element.style.cssText.match(/background-color: rgb\(170, 221, 255\) \!important/) 
-			|| element.style.cssText.match(/background-color: \#adf \!important/))
+		if (element.style.cssText.match(regexp1) || element.style.cssText.match(regexp2))
 			highlightCheckbox.checked = true;
 
 		highlightCheckbox.addEventListener('change', () => {
-			highlightBoxAction(element);
+			highlightBoxAction(element, row);
 		}, false);
 	}
 
+	header.classList.add('popup__header');
+	listWrapper.appendChild(header);
+	listWrapper.classList.add('popup__section');
+	listWrapper.classList.add(`popup__section--${sectionName}`);
 };
 
 export {renderPopupSection};

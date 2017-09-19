@@ -1,4 +1,4 @@
-/* styles.js, v. 0.1.0, 18.09.2017, @ filip-swinarski */
+/* styles.js, v. 0.1.1, 19.09.2017, @ filip-swinarski */
 
 const rules = [];
 
@@ -508,6 +508,12 @@ rules.push(`.popup__list-btn--expanded {
 
 rules.push(`.popup__list-btn--collapsed {
 	visibility: hidden;
+}`);
+
+rules.push(`.popup__highlight {
+	position: absolute;
+	top: 10px;
+	right: 2px;
 }`);
 
 export {rules};

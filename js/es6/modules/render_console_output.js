@@ -1,8 +1,8 @@
-// render_console_output.js, v. 0.1.3, 21.04.2017 @ filip-swinarski
+// render_console_output.js, v. 0.1.3, 1111111117 @ filip-swinarski
 
-let renderConsoleOutput = (val, element = document.body, index) => {
+const renderConsoleOutput = (val, element = document.body, index) => {
 
-    let output = document.createElement('span');
+    const output = document.createElement('span');
     let checkStr = Object.prototype.toString.call(val).split(' ')[1];
     let html = '';
 
@@ -24,7 +24,7 @@ let renderConsoleOutput = (val, element = document.body, index) => {
        
         for (let item in val) {
            
-            let keyClass = checkStr === 'array' ? 'index' : 'key';
+            const keyClass = checkStr === 'array' ? 'index' : 'key';
             let checkStr2 = Object.prototype.toString.call(val[item]).split(' ')[1];
            
             checkStr2 = checkStr2.substring(0, checkStr2.length-1).toLowerCase();
@@ -37,8 +37,8 @@ let renderConsoleOutput = (val, element = document.body, index) => {
                 checkStr2 === 'symbol' ||
                 checkStr2 === 'boolean') {
 
-                let keyElement = document.createElement('span');
-                let valueElement = document.createElement('span');
+                const keyElement = document.createElement('span');
+                const valueElement = document.createElement('span');
 
                 keyElement.classList.add(`console__${keyClass}`);
                 keyElement.innerHTML = item;
@@ -52,7 +52,7 @@ let renderConsoleOutput = (val, element = document.body, index) => {
                 output.innerHTML += html;
             } else {
 				
-                let keyElement = document.createElement('span');
+                const keyElement = document.createElement('span');
                         
                 keyElement.classList.add(`console__${keyClass}`);
                 keyElement.innerHTML = item;

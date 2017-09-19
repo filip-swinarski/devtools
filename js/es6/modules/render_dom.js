@@ -1,21 +1,21 @@
-/* render_dom.js, v. 0.1.9, 21.04.2017, @ filip-swinarski */
+/* render_dom.js, v. 0.1.9, 19.09.2017, @ filip-swinarski */
 
 import {domElementListen} from './dom_element_listen.js';
 
-let renderDOM = (elem, parentEl, level) => {
+const renderDOM = (elem, parentEl, level) => {
 
     if (elem.id === 'dev_tools')
         return;
 
-    let wrapper = document.createElement('div');
-    let row1 = document.createElement('div');
-    let row2 = elem.children.length ? document.createElement('div') : document.createElement('span');
-    let row1ElementTypeSpan = document.createElement('span');
-    let row1OpenArrow = document.createElement('span');
-    let row1CloseArrow = document.createElement('span');
-    let row2ElementTypeSpan = document.createElement('span');
-    let row2OpenArrow = document.createElement('span');
-    let row2CloseArrow = document.createElement('span');
+    const wrapper = document.createElement('div');
+    const row1 = document.createElement('div');
+    const row2 = elem.children.length ? document.createElement('div') : document.createElement('span');
+    const row1ElementTypeSpan = document.createElement('span');
+    const row1OpenArrow = document.createElement('span');
+    const row1CloseArrow = document.createElement('span');
+    const row2ElementTypeSpan = document.createElement('span');
+    const row2OpenArrow = document.createElement('span');
+    const row2CloseArrow = document.createElement('span');
     
     row1.classList.add('inspector__row');
     row1.classList.add('inspector__row--opening');
@@ -37,9 +37,9 @@ let renderDOM = (elem, parentEl, level) => {
     if (elem.attributes.length) {
         [].slice.call(elem.attributes).forEach((attr) => {
                 
-            let attrNameSpan = document.createElement('span');
-            let attrEqualSpan = document.createElement('span');
-            let attrValueSpan = document.createElement('span');
+            const attrNameSpan = document.createElement('span');
+            const attrEqualSpan = document.createElement('span');
+            const attrValueSpan = document.createElement('span');
             
             attrNameSpan.classList.add('inspector__attr-name');
             attrValueSpan.classList.add('inspector__attr-value');
@@ -58,7 +58,7 @@ let renderDOM = (elem, parentEl, level) => {
     
     if (elem.text && elem.text.length) {
             
-        let textEl = document.createElement('div');
+        const textEl = document.createElement('div');
         
         textEl.classList.add('inspector__exp');
         textEl.innerText = elem.text.trim();

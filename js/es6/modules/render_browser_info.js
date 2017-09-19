@@ -1,8 +1,8 @@
-/* render_browser_info.js, v. 0.1.1, 15.04.2017, @ filip-swinarski */
+/* render_browser_info.js, v. 0.1.1, 19.04.2017, @ filip-swinarski */
 
 import {renderHeader} from './render_header.js';
 
-let renderBrowserInfo = (panel) => {
+const renderBrowserInfo = (panel) => {
 
     const browserInfoDisplay = document.createElement('div');
     const browserInfoContainer = document.createElement('div');

@@ -1,4 +1,4 @@
-/* render_console.js, v. 0.1.3, 15.04.2017, @ filip-swinarski */
+/* render_console.js, v. 0.1.3, 19.04.2017, @ filip-swinarski */
 
 import {consoleListen} from './console_listen';
 import {renderHeader} from './render_header.js';
@@ -21,7 +21,7 @@ consoleInputPrompt.classList.add('console__prompt');
 consoleContainer.id = 'console';
 consoleInputPrompt.classList.add('console__prompt--collapsed');
 
-let renderConsole = (panel) => {
+const renderConsole = (panel) => {
 
     renderHeader(consoleContainer, false);
     consoleContainer.appendChild(consoleInputPrompt);

@@ -1,8 +1,8 @@
-/* dom_element_listen.js, v. 0.1.0, 21.04.2017, @ filip-swinarski */
+/* dom_element_listen.js, v. 0.1.0, 19.09.2017, @ filip-swinarski */
 
 import {renderPopup} from './render_popup.js';
 
-let domElementListen = (elem, row, arrow) => {
+const domElementListen = (elem, row, arrow) => {
 
 	let startDate;
 	let tObj;
@@ -37,8 +37,8 @@ let domElementListen = (elem, row, arrow) => {
 	}, false);
 	row.addEventListener('touchend', (e) => {
 	   
-		let endDate = new Date();
-		let dateAmp = endDate - startDate;
+		const endDate = new Date();
+		const dateAmp = endDate - startDate;
 	   
 		tObj = e.changedTouches[0];
 		endX = tObj.pageX;

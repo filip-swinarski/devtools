@@ -1,6 +1,6 @@
-/* add_button_action.js, v. 0.1.1, 05.05.2017, @ filip-swinarski */
+/* add_button_action.js, v. 0.1.1, 19.09.2017, @ filip-swinarski */
 
-let addButtonAction = (applyBtn, cancelBtn, nameLabel, valueLabel, header) => {
+const addButtonAction = (applyBtn, cancelBtn, nameLabel, valueLabel, header) => {
 	applyBtn.classList.remove('popup__apply--collapsed');
 	cancelBtn.classList.remove('popup__cancel--collapsed');
 	nameLabel.classList.remove('popup__add-label--collapsed');

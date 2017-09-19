@@ -1,13 +1,13 @@
-/* dt_console_api.js, v. 0.1.3, 21.04.2017, @ filip-swinarski */
+/* dt_console_api.js, v. 0.1.3, 19.09.2017, @ filip-swinarski */
 
 import {consoleLog} from './console_log.js';
 import {consoleClear} from './console_clear.js';
 
-let log = (value, str = '') => {
+const log = (value, str = '') => {
     consoleLog(str, value);
 }
 
-let clear = consoleClear;
+const clear = consoleClear;
 
 export {log};
 export {clear};

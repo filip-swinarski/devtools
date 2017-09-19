@@ -2,15 +2,15 @@
 
 import {renderPopupSection} from './render_popup_section.js';
 
-let renderPopup = (element, row) => {
+const renderPopup = (element, row) => {
 
-    let container = document.querySelector('#dev_tools');
-    let popup = document.createElement('div');
-    let closeBtn =  document.createElement('div');
-	let attributeListWrapper = document.createElement('div');
-	let styleListWrapper = document.createElement('div');
-	let popupWrapper = document.createElement('div');
-	let highlightWrapper = document.createElement('div');
+    const container = document.querySelector('#dev_tools');
+    const popup = document.createElement('div');
+    const closeBtn =  document.createElement('div');
+	const attributeListWrapper = document.createElement('div');
+	const styleListWrapper = document.createElement('div');
+	const popupWrapper = document.createElement('div');
+	const highlightWrapper = document.createElement('div');
 
     popup.classList.add('popup');
 	popupWrapper.classList.add('popup__wrapper');

@@ -1,21 +1,21 @@
-/* console_listen.js, v. 0.1.5, 06.04.2017, @ filip-swinarski */
+/* console_listen.js, v. 0.1.5, 19.09.2017, @ filip-swinarski */
 
 import {consoleDisplay} from './render_console.js';
 import {consoleInput} from './render_console.js';
 import {renderConsoleMessage} from './render_console_message.js';
 import {globalEval} from './global_eval.js';
 
-let consoleListen = () => {
+const consoleListen = () => {
 
     window.addEventListener('error', (error) => {
 
-        let row = document.createElement('div');
-        let errorMessage = document.createElement('div');
-        let errorMessageMsg = document.createElement('span');
-        let errorSource = document.createElement('span');
-        let errorLineNo = document.createElement('span');
-        let errorColumnNo = document.createElement('span');
-        let errorPrompt = document.createElement('span');
+        const row = document.createElement('div');
+        const errorMessage = document.createElement('div');
+        const errorMessageMsg = document.createElement('span');
+        const errorSource = document.createElement('span');
+        const errorLineNo = document.createElement('span');
+        const errorColumnNo = document.createElement('span');
+        const errorPrompt = document.createElement('span');
 
         row.classList.add('console__row');
         errorPrompt.classList.add('console__err-prompt');
@@ -43,7 +43,7 @@ let consoleListen = () => {
 
     consoleDisplay.addEventListener('log', (e) => {
 
-        let row = renderConsoleMessage(e.detail);
+        const row = renderConsoleMessage(e.detail);
 
         row.classList.add('console__row');
         consoleDisplay.appendChild(row);

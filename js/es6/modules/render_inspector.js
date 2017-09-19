@@ -1,9 +1,9 @@
-/* render_inspector.js, v. 0.1.6, 21.04.2017, @ filip-swinarski */
+/* render_inspector.js, v. 0.1.6, 19.09.2017, @ filip-swinarski */
 
 import {renderDOM} from './render_dom.js';
 import {renderHeader} from './render_header.js';
 
-let renderInspector = (body, panel) => {
+const renderInspector = (body, panel) => {
 
     const inspectorDisplay = document.createElement('div');
     const inspectorContainer = document.createElement('div');

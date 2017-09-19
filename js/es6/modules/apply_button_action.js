@@ -1,14 +1,14 @@
-/* apply_button_action.js, v. 0.1.2, 18.09.2017, @ filip-swinarski */
+/* apply_button_action.js, v. 0.1.2, 19.09.2017, @ filip-swinarski */
 
 import {renderAttrInput} from './render_attribute_input.js';
 
-let applyButtonAction = (element, btn, valueLabel, nameLabel, arr, list, row, header) => {
+const applyButtonAction = (element, btn, valueLabel, nameLabel, arr, list, row, header) => {
 
-	let separator = document.createElement('span');
-	let valueInput = valueLabel.querySelector('input');
-	let nameInput = nameLabel.querySelector('input');
-	let value = valueInput.value;
-	let name = nameInput.value;
+	const separator = document.createElement('span');
+	const valueInput = valueLabel.querySelector('input');
+	const nameInput = nameLabel.querySelector('input');
+	const value = valueInput.value;
+	const name = nameInput.value;
 	let attrValueElem;
 	let attrNameElem;
 

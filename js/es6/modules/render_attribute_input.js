@@ -1,12 +1,12 @@
-/* render_attribute_input.js, v. 0.1.1, 05.05.2017, @ filip-swinarski */
+/* render_attribute_input.js, v. 0.1.1, 19.09.2017, @ filip-swinarski */
 
-let renderAttrInput = (el, display, row, name, value) => {
+const renderAttrInput = (el, display, row, name, value) => {
    
-	let input = document.createElement('input');
-	let label = document.createElement('label');
-	let separator = document.createElement('span');
-	let applyBtn = document.createElement('button');
-	let listElement = document.createElement('li');
+	const input = document.createElement('input');
+	const label = document.createElement('label');
+	const separator = document.createElement('span');
+	const applyBtn = document.createElement('button');
+	const listElement = document.createElement('li');
    
 	input.type = 'text';
 	input.value = value;
@@ -34,8 +34,8 @@ let renderAttrInput = (el, display, row, name, value) => {
    
 		if (e.keyCode === 13) {
 
-			let rowAttrNameElems = row.querySelectorAll('.inspector__attr-name');
-			let rowAttrValueElems = row.querySelectorAll('.inspector__attr-value');
+			const rowAttrNameElems = row.querySelectorAll('.inspector__attr-name');
+			const rowAttrValueElems = row.querySelectorAll('.inspector__attr-value');
 
 			if (display.id == 'attr_list')
 				el.attributes[name].value = input.value;
@@ -52,7 +52,7 @@ let renderAttrInput = (el, display, row, name, value) => {
 
 				if (attrNameEl.innerText === 'style' && display.id == 'style_list') {
 
-					let labels = display.querySelectorAll('label');
+					const labels = display.querySelectorAll('label');
 					let value = '';
 
 					[].forEach.call(labels, (label, i) => {
@@ -86,8 +86,8 @@ let renderAttrInput = (el, display, row, name, value) => {
 
 	applyBtn.addEventListener('touchstart', (e) => {
    
-		let rowAttrNameElems = row.querySelectorAll('.inspector__attr-name');
-		let rowAttrValueElems = row.querySelectorAll('.inspector__attr-value');
+		const rowAttrNameElems = row.querySelectorAll('.inspector__attr-name');
+		const rowAttrValueElems = row.querySelectorAll('.inspector__attr-value');
 
 		if (display.id == 'attr_list')
 			el.attributes[name].value = input.value;
