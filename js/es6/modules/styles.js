@@ -1,4 +1,4 @@
-/* styles.js, v. 0.1.2, 19.09.2017, @ filip-swinarski */
+/* styles.js, v. 0.1.3, 19.09.2017, @ filip-swinarski */
 
 const rules = [];
 
@@ -133,7 +133,7 @@ rules.push(`.console__header {
 	cursor: pointer;
 }`);
 
-rules.push(`.console__controls--clear-btn {
+rules.push(`.console__controls--btn {
     position: absolute;
     top: 5px;
     right: 10px;
@@ -144,6 +144,14 @@ rules.push(`.console__controls--clear-btn {
     font-size: 14px;
     font-family: "Space Mono", monospace;
 	cursor: pointer;
+}`);
+
+rules.push(`.console__controls--clear-btn {
+    right: 6px;
+}`);
+
+rules.push(`.console__controls--log-btn {
+    right: 63px;
 }`);
 
 rules.push(`.console__controls {
