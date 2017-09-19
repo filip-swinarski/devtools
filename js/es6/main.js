@@ -1,4 +1,4 @@
-/* main.js 0.1.1 30.03.2017 @ filip swinarski */
+/* main.js 0.1.2 19.09.2017 @ filip swinarski */
 
 import {loadStyles} from './modules/load_styles.js';
 import {renderInspector} from './modules/render_inspector.js';
@@ -18,4 +18,7 @@ renderInspector(body, container);
 renderConsole(container);
 renderBrowserInfo(container);
 
-window.DTConsole = DTConsole;
+if (window.console)
+	window.DTConsole = DTConsole;
+else
+	window.console = DTConsole;

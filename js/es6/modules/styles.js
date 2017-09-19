@@ -1,4 +1,4 @@
-/* styles.js, v. 0.1.1, 19.09.2017, @ filip-swinarski */
+/* styles.js, v. 0.1.2, 19.09.2017, @ filip-swinarski */
 
 const rules = [];
 
@@ -131,6 +131,27 @@ rules.push(`.console__header {
 	border-right: 1px solid #bcbcbc;
 	padding: 10px;
 	cursor: pointer;
+}`);
+
+rules.push(`.console__controls--clear-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background-color: #fff;
+    border: 1px solid #bcbcbc;
+    border-radius: 3px;
+    padding: 4px 8px;
+    font-size: 14px;
+    font-family: "Space Mono", monospace;
+	cursor: pointer;
+}`);
+
+rules.push(`.console__controls {
+    display: none;
+}`);
+
+rules.push(`.console__controls--expanded {
+    display: block;
 }`);
 
 rules.push(`.console__display {

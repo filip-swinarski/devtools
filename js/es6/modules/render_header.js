@@ -22,7 +22,7 @@ const renderHeader = (container, expanded) => {
    
     header.addEventListener('click', (e) => {
        
-        const children = [].filter.call(container.children, el => el.id !== `${parent.id}_header`);
+        const children = [].filter.call(container.children, el => el.id !== `${parent.id}__header`);
        
         toggleBtn.classList.toggle(`${container.classList[0]}__toggle--expanded`);
         toggleBtn.classList.toggle(`${container.classList[0]}__toggle--collapsed`);
