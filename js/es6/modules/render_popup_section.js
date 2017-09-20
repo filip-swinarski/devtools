@@ -1,4 +1,4 @@
-/* render_popup_section.js, v. 0.1.2, 19.09.2017, @ filip-swinarski */
+/* render_popup_section.js, v. 0.1.3, 20.09.2017, @ filip-swinarski */
 
 import {renderAttrInput} from './render_attribute_input.js';
 import {addButtonAction} from './add_button_action.js';
@@ -15,6 +15,7 @@ const renderPopupSection = (id, title, element, row, listWrapper) => {
 	let sectionName = '';
 
 	header.innerHTML = `<span class="popup__headline">${title}</span>`;
+	listWrapper.appendChild(header);
 
 	if (id === 'attr_list' || id === 'style_list') {
 
@@ -27,6 +28,8 @@ const renderPopupSection = (id, title, element, row, listWrapper) => {
 		const valueInputLabel = document.createElement('label');
 		let arr;
 		
+		listWrapper.appendChild(list);
+
 		if (id === 'attr_list') {
 			arr = [].filter.call(element.attributes, attr => attr.name !== 'style');
 			sectionName = 'attributes';
@@ -60,7 +63,6 @@ const renderPopupSection = (id, title, element, row, listWrapper) => {
 		valueInputLabel.appendChild(valueInput);
 		header.appendChild(nameInputLabel);
 		header.appendChild(valueInputLabel);
-		listWrapper.appendChild(list);
 
 		if (id === 'style_list' && element.attributes && element.attributes.style) {
 			arr = ''.split.call(element.attributes.style.value, '; ')
@@ -114,7 +116,6 @@ const renderPopupSection = (id, title, element, row, listWrapper) => {
 	}
 
 	header.classList.add('popup__header');
-	listWrapper.appendChild(header);
 	listWrapper.classList.add('popup__section');
 	listWrapper.classList.add(`popup__section--${sectionName}`);
 };
