@@ -1,4 +1,4 @@
-/* styles.js, v. 0.1.4, 20.09.2017, @ filip-swinarski */
+/* styles.js, v. 0.1.5, 20.09.2017, @ filip-swinarski */
 
 const rules = [];
 
@@ -397,22 +397,28 @@ rules.push(`.inspector-pane__close {
 	background-color: #fff;
 	border-bottom: 1px solid #bcbcbc;
 	border-left: 1px solid #bcbcbc;
-	padding: 2px 6px;
+	padding: 10px 6px;
 	cursor: pointer;
 	font-size: 20px;
+	z-index: 1;
 }`);
 
 rules.push(`.inspector-pane__wrapper {
-	height: 371px;
+	height: 400px;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	margin-top: 29px;
 	position: relative;
 }`);
 
 rules.push(`.inspector-pane__header {
 	padding: 10px;
 	position: relative;
+	border-bottom: 1px solid #efefef;
+	border-top: 1px solid #efefef;
+}`);
+
+rules.push(`.inspector-pane__section:first-child .inspector-pane__header {
+	border-top: 0 none transparent;
 }`);
 
 rules.push(`.inspector-pane__header--expanded {
@@ -434,6 +440,10 @@ rules.push(`.inspector-pane__add {
 	right: 5px;
 	top: 5px;
 	font-size: 20px;
+}`);
+
+rules.push(`.inspector-pane__section:first-child .inspector-pane__add {
+	right: 32px;
 }`);
 
 rules.push(`.inspector-pane__add-input {
@@ -505,18 +515,28 @@ rules.push(`.inspector-pane__list-element {
 
 rules.push(`.inspector-pane__list-label {
 	display: block;
+	color: #800080;
 }`);
 
 rules.push(`.inspector-pane__list-separator {
 	padding-right: 5px;
+	color: #000;
 }`);
 
 rules.push(`.inspector-pane__list-input {
-	-moz-appearance: none; border: 1px solid #fff;
+	-moz-appearance: none;
+	border: 1px solid #fff;
+	font-vamily: "Space Mono",monospace;
+	font-size: 14px;
+	color: #00f;
 }`);
 
 rules.push(`.inspector-pane__list-input:focus {
 	border: 1px solid #bcbcbc;
+	color: #fff;
+	background-color: #3af;
+	color: #fff;
+	box-shadow: inset 0 0 2px 1px #fff;
 }`);
 
 rules.push(`.inspector-pane__list-btn {

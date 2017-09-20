@@ -1,4 +1,4 @@
-/* render_section.js, v. 0.1.0, 20.09.2017, @ filip-swinarski */
+/* render_section.js, v. 0.1.1, 20.09.2017, @ filip-swinarski */
 
 import {renderAttrInput} from './render_attribute_input.js';
 import {addButtonAction} from './add_button_action.js';
@@ -16,6 +16,7 @@ const renderSection = (id, prefix, title, element, row, listWrapper) => {
 
 	header.innerHTML = `<span class="${prefix}__headline">${title}</span>`;
 	listWrapper.appendChild(header);
+	list.classList.add(`${prefix}__list`);
 
 	if (id === 'attr_list' || id === 'style_list') {
 
