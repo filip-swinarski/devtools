@@ -1,6 +1,6 @@
-/* dom_element_listen.js, v. 0.1.0, 19.09.2017, @ filip-swinarski */
+/* dom_element_listen.js, v. 0.1.1, 20.09.2017, @ filip-swinarski */
 
-import {renderPopup} from './render_popup.js';
+import {renderInspectorPane} from './render_inspector_pane.js';
 
 const domElementListen = (elem, row, arrow) => {
 
@@ -59,7 +59,7 @@ const domElementListen = (elem, row, arrow) => {
 				}
 
 			} else {
-				renderPopup(elem, row);
+				renderInspectorPane(elem, row);
 			}
 		   
 		}
