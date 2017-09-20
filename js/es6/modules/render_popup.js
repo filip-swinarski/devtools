@@ -1,6 +1,6 @@
-/* render_popup.js, v. 0.1.4, 18.09.2017, @ filip-swinarski */
+/* render_popup.js, v. 0.1.5, 20.09.2017, @ filip-swinarski */
 
-import {renderPopupSection} from './render_popup_section.js';
+import {renderSection} from './render_section.js';
 
 const renderPopup = (element, row) => {
 
@@ -21,9 +21,9 @@ const renderPopup = (element, row) => {
         popup.remove();
     }, false);
 
-	renderPopupSection('attr_list', 'Attributes', element, row, attributeListWrapper);
-	renderPopupSection('style_list', 'Inline styles', element, row, styleListWrapper);
-	renderPopupSection('highlight_section', 'Highlight element', element, row, highlightWrapper);
+	renderSection('attr_list', 'popup', 'Attributes', element, row, attributeListWrapper);
+	renderSection('style_list', 'popup', 'Inline styles', element, row, styleListWrapper);
+	renderSection('highlight_section', 'popup', 'Highlight element', element, row, highlightWrapper);
 
     popup.appendChild(closeBtn);
     popupWrapper.appendChild(attributeListWrapper);

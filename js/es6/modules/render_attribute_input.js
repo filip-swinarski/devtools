@@ -1,6 +1,6 @@
-/* render_attribute_input.js, v. 0.1.1, 19.09.2017, @ filip-swinarski */
+/* render_attribute_input.js, v. 0.1.2, 20.09.2017, @ filip-swinarski */
 
-const renderAttrInput = (el, display, row, name, value) => {
+const renderAttrInput = (el, display, row, name, value, prefix) => {
    
 	const input = document.createElement('input');
 	const label = document.createElement('label');
@@ -17,12 +17,12 @@ const renderAttrInput = (el, display, row, name, value) => {
 	label.innerText = name;
 	applyBtn.innerText = 'Apply';
 	separator.innerText = ':';
-	listElement.classList.add('popup__list-element');
-	label.classList.add('popup__list-label');
-	input.classList.add('popup__list-input');
-	applyBtn.classList.add('popup__list-btn');
-	applyBtn.classList.add('popup__list-btn--collapsed');
-	separator.classList.add('popup__list-separator');
+	listElement.classList.add(`${prefix}__list-element`);
+	label.classList.add(`${prefix}__list-label`);
+	input.classList.add(`${prefix}__list-input`);
+	applyBtn.classList.add(`${prefix}__list-btn`);
+	applyBtn.classList.add(`${prefix}__list-btn--collapsed`);
+	separator.classList.add(`${prefix}__list-separator`);
    
 	label.appendChild(separator);
 	label.appendChild(input);
@@ -68,20 +68,20 @@ const renderAttrInput = (el, display, row, name, value) => {
 
 			});
 
-			applyBtn.classList.remove('popup__list-btn--expanded');
-			applyBtn.classList.add('popup__list-btn--collapsed');
+			applyBtn.classList.remove(`${prefix}__list-btn--expanded`);
+			applyBtn.classList.add(`${prefix}__list-btn--collapsed`);
 		}
 
 	}, false);
 
 	input.addEventListener('focus', (e) => {
-		applyBtn.classList.add('popup__list-btn--expanded');
-		applyBtn.classList.remove('popup__list-btn--collapsed');
+		applyBtn.classList.add(`${prefix}__list-btn--expanded`);
+		applyBtn.classList.remove(`${prefix}__list-btn--collapsed`);
 	});
 
 	input.addEventListener('blur', (e) => {
-		applyBtn.classList.remove('popup__list-btn--expanded');
-		applyBtn.classList.add('popup__list-btn--collapsed');
+		applyBtn.classList.remove(`${prefix}__list-btn--expanded`);
+		applyBtn.classList.add(`${prefix}__list-btn--collapsed`);
 	});
 
 	applyBtn.addEventListener('touchstart', (e) => {
@@ -120,8 +120,8 @@ const renderAttrInput = (el, display, row, name, value) => {
 
 		});
 
-		applyBtn.classList.remove('popup__list-btn--expanded');
-		applyBtn.classList.add('popup__list-btn--collapsed');
+		applyBtn.classList.remove(`${prefix}__list-btn--expanded`);
+		applyBtn.classList.add(`${prefix}__list-btn--collapsed`);
 
 	}, false);
 };

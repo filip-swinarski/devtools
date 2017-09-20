@@ -1,8 +1,8 @@
-/* apply_button_action.js, v. 0.1.2, 19.09.2017, @ filip-swinarski */
+/* apply_button_action.js, v. 0.1.3, 20.09.2017, @ filip-swinarski */
 
 import {renderAttrInput} from './render_attribute_input.js';
 
-const applyButtonAction = (element, btn, valueLabel, nameLabel, arr, list, row, header) => {
+const applyButtonAction = (element, btn, valueLabel, nameLabel, arr, list, row, header, prefix) => {
 
 	const separator = document.createElement('span');
 	const valueInput = valueLabel.querySelector('input');
@@ -63,15 +63,15 @@ const applyButtonAction = (element, btn, valueLabel, nameLabel, arr, list, row, 
 
 	attrNameElem.classList.add('inspector__attr-name');
 	attrValueElem.classList.add('inspector__attr-value');
-	nameLabel.classList.add('popup__add-label--collapsed');
-	nameLabel.classList.remove('popup__add-label--expanded');
-	header.classList.remove('popup__header--expanded');
-	valueLabel.classList.add('popup__add-label--collapsed');
-	valueLabel.classList.remove('popup__add-label--expanded');
+	nameLabel.classList.add(`${prefix}__add-label--collapsed`);
+	nameLabel.classList.remove(`${prefix}__add-label--expanded`);
+	header.classList.remove(`${prefix}__header--expanded`);
+	valueLabel.classList.add(`${prefix}__add-label--collapsed`);
+	valueLabel.classList.remove(`${prefix}__add-label--expanded`);
 	nameInput.value = '';
 	valueInput.value = '';
-	btn.classList.add('popup__apply--collapsed');
-	btn.classList.remove('popup__apply--expanded');
+	btn.classList.add(`${prefix}__apply--collapsed`);
+	btn.classList.remove(`${prefix}__apply--expanded`);
 };
 
 export {applyButtonAction};

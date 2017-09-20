@@ -1,4 +1,4 @@
-/* render_popup_section.js, v. 0.1.3, 20.09.2017, @ filip-swinarski */
+/* render_section.js, v. 0.1.0, 20.09.2017, @ filip-swinarski */
 
 import {renderAttrInput} from './render_attribute_input.js';
 import {addButtonAction} from './add_button_action.js';
@@ -6,7 +6,7 @@ import {applyButtonAction} from './apply_button_action.js';
 import {cancelButtonAction} from './cancel_button_action.js';
 import {highlightBoxAction} from './highlight_box_action.js';
 
-const renderPopupSection = (id, title, element, row, listWrapper) => {
+const renderSection = (id, prefix, title, element, row, listWrapper) => {
 
 	const list = document.createElement('ul');
 	const header = document.createElement('div');
@@ -14,7 +14,7 @@ const renderPopupSection = (id, title, element, row, listWrapper) => {
 	const regexp2 = new RegExp(/background-color: \#adf \!important/);
 	let sectionName = '';
 
-	header.innerHTML = `<span class="popup__headline">${title}</span>`;
+	header.innerHTML = `<span class="${prefix}__headline">${title}</span>`;
 	listWrapper.appendChild(header);
 
 	if (id === 'attr_list' || id === 'style_list') {
@@ -40,22 +40,22 @@ const renderPopupSection = (id, title, element, row, listWrapper) => {
 
 		list.id = id;
 		addBtn.innerText = '+';
-		addBtn.classList.add('popup__add');
+		addBtn.classList.add(`${prefix}__add`);
 		addApplyBtn.innerText = 'Apply';
 		addCancelBtn.innerText = 'Cancel';
 		addApplyBtn.id = `add_${id.replace('_list', '')}_btn`;
-		addApplyBtn.classList.add('popup__apply');
-		addCancelBtn.classList.add('popup__cancel');
+		addApplyBtn.classList.add(`${prefix}__apply`);
+		addCancelBtn.classList.add(`${prefix}__cancel`);
 		nameInputLabel.innerText = id === 'style_list' ? 'property name ' : 'attribute name ';
 		valueInputLabel.innerText = id === 'style_list' ? 'property value ' : 'attribute value ';
 		nameInput.type = 'text';
-		nameInput.classList.add('popup__add-input');
+		nameInput.classList.add(`${prefix}__add-input`);
 		valueInput.type = 'text';
-		valueInput.classList.add('popup__add-input');
-		addApplyBtn.classList.add('popup__apply--collapsed');
-		addCancelBtn.classList.add('popup__cancel--collapsed');
-		nameInputLabel.classList.add('popup__add-label--collapsed');
-		valueInputLabel.classList.add('popup__add-label--collapsed');
+		valueInput.classList.add(`${prefix}__add-input`);
+		addApplyBtn.classList.add(`${prefix}__apply--collapsed`);
+		addCancelBtn.classList.add(`${prefix}__cancel--collapsed`);
+		nameInputLabel.classList.add(`${prefix}__add-label--collapsed`);
+		valueInputLabel.classList.add(`${prefix}__add-label--collapsed`);
 		header.appendChild(addBtn);
 		header.appendChild(addCancelBtn);
 		header.appendChild(addApplyBtn);
@@ -86,17 +86,17 @@ const renderPopupSection = (id, title, element, row, listWrapper) => {
 				value = arr[item].value;
 			}
 
-			renderAttrInput(element, list, row, name, value);
+			renderAttrInput(element, list, row, name, value, prefix);
 		}
 
 		addBtn.addEventListener('click', (e) => {
-			addButtonAction(addApplyBtn, addCancelBtn, nameInputLabel, valueInputLabel, header);
+			addButtonAction(addApplyBtn, addCancelBtn, nameInputLabel, valueInputLabel, header, prefix);
 		}, false);
 		addApplyBtn.addEventListener('click', () => {
-			applyButtonAction(element, addApplyBtn, valueInputLabel, nameInputLabel, arr, list, row, header);
+			applyButtonAction(element, addApplyBtn, valueInputLabel, nameInputLabel, arr, list, row, header, prefix);
 		}, false);
 		addCancelBtn.addEventListener('click', () => {
-			cancelButtonAction(addApplyBtn, addCancelBtn, valueInputLabel, nameInputLabel, header);
+			cancelButtonAction(addApplyBtn, addCancelBtn, valueInputLabel, nameInputLabel, header, prefix);
 		}, false);
 	} else if (id === 'highlight_section') {
 
@@ -104,7 +104,7 @@ const renderPopupSection = (id, title, element, row, listWrapper) => {
 
 		sectionName = 'highlight';
 		highlightCheckbox.type = 'checkbox';
-		highlightCheckbox.classList.add('popup__highlight');
+		highlightCheckbox.classList.add(`${prefix}__highlight`);
 		header.appendChild(highlightCheckbox);
 
 		if (element.style.cssText.match(regexp1) || element.style.cssText.match(regexp2))
@@ -115,9 +115,9 @@ const renderPopupSection = (id, title, element, row, listWrapper) => {
 		}, false);
 	}
 
-	header.classList.add('popup__header');
-	listWrapper.classList.add('popup__section');
-	listWrapper.classList.add(`popup__section--${sectionName}`);
+	header.classList.add(`${prefix}__header`);
+	listWrapper.classList.add(`${prefix}__section`);
+	listWrapper.classList.add(`${prefix}__section--${sectionName}`);
 };
 
-export {renderPopupSection};
+export {renderSection};
