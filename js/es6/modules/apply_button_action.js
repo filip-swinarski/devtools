@@ -1,8 +1,8 @@
-/* apply_button_action.js, v. 0.1.3, 20.09.2017, @ filip-swinarski */
+/* apply_button_action.js, v. 0.1.4, 21.09.2017, @ filip-swinarski */
 
 import {renderAttrInput} from './render_attribute_input.js';
 
-const applyButtonAction = (element, btn, valueLabel, nameLabel, arr, list, row, header, prefix) => {
+const applyButtonAction = (element, addBtn, cancelBtn, valueLabel, nameLabel, arr, list, row, header, prefix) => {
 
 	const separator = document.createElement('span');
 	const valueInput = valueLabel.querySelector('input');
@@ -15,10 +15,10 @@ const applyButtonAction = (element, btn, valueLabel, nameLabel, arr, list, row, 
 	list.innerHTML = '';
 	separator.innerText = '=';
 
-	if (btn.id === 'add_attr_btn')
+	if (addBtn.id === 'add_attr_btn')
 		attrNameElem = [].filter.call(row.querySelectorAll('.inspector__attr-name'), (el) => el.innerText === name)[0];
 
-	if (btn.id === 'add_style_btn')
+	if (addBtn.id === 'add_style_btn')
 		attrNameElem = [].filter.call(row.querySelectorAll('.inspector__attr-name'), (el) => el.innerText === 'style')[0];
 
 	if (attrValueElem) {
@@ -31,23 +31,23 @@ const applyButtonAction = (element, btn, valueLabel, nameLabel, arr, list, row, 
 		row.insertBefore(attrValueElem, row.lastChild);
 	}
 
-	if (btn.id === 'add_attr_btn') {
+	if (addBtn.id === 'add_attr_btn') {
 		element.setAttribute(name, value);
 		arr = [].filter.call(element.attributes, attr => attr.name !== 'style');
 		[].forEach.call(arr, (attr) => {
-			renderAttrInput(element, list, row, attr.name, attr.value);
+			renderAttrInput(element, list, row, attr.name, attr.value, prefix);
 		});
 		attrNameElem.innerText = name;
 		attrValueElem.innerText = `"${value}"`;
 	}
 
-	if (btn.id === 'add_style_btn') {
+	if (addBtn.id === 'add_style_btn') {
 		attrNameElem.innerText = 'style';
 		element.style[name] = value;
 		arr.push(`${name}: ${value};`);
 		attrValueElem.innerText = '"';
 		[].forEach.call(arr, (rule, i) => {
-			renderAttrInput(element, list, row, rule.split(': ')[0], rule.split(': ')[1].replace(';', ''));
+			renderAttrInput(element, list, row, rule.split(': ')[0], rule.split(': ')[1].replace(';', ''), prefix);
 
 			if(i !== 0)
 				attrValueElem.innerText += ' ';
@@ -70,8 +70,10 @@ const applyButtonAction = (element, btn, valueLabel, nameLabel, arr, list, row, 
 	valueLabel.classList.remove(`${prefix}__add-label--expanded`);
 	nameInput.value = '';
 	valueInput.value = '';
-	btn.classList.add(`${prefix}__apply--collapsed`);
-	btn.classList.remove(`${prefix}__apply--expanded`);
+	addBtn.classList.add(`${prefix}__apply--collapsed`);
+	addBtn.classList.remove(`${prefix}__apply--expanded`);
+	cancelBtn.classList.add(`${prefix}__cancel--collapsed`);
+	cancelBtn.classList.remove(`${prefix}__cancel--expanded`);
 };
 
 export {applyButtonAction};

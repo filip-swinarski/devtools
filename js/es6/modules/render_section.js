@@ -1,4 +1,4 @@
-/* render_section.js, v. 0.1.1, 20.09.2017, @ filip-swinarski */
+/* render_section.js, v. 0.1.2, 21.09.2017, @ filip-swinarski */
 
 import {renderAttrInput} from './render_attribute_input.js';
 import {addButtonAction} from './add_button_action.js';
@@ -94,7 +94,7 @@ const renderSection = (id, prefix, title, element, row, listWrapper) => {
 			addButtonAction(addApplyBtn, addCancelBtn, nameInputLabel, valueInputLabel, header, prefix);
 		}, false);
 		addApplyBtn.addEventListener('click', () => {
-			applyButtonAction(element, addApplyBtn, valueInputLabel, nameInputLabel, arr, list, row, header, prefix);
+			applyButtonAction(element, addApplyBtn, addCancelBtn, valueInputLabel, nameInputLabel, arr, list, row, header, prefix);
 		}, false);
 		addCancelBtn.addEventListener('click', () => {
 			cancelButtonAction(addApplyBtn, addCancelBtn, valueInputLabel, nameInputLabel, header, prefix);

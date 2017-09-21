@@ -25,4 +25,3 @@ A set of basic frontend developer tools for mobile browsers. Includes html inspe
 
 apply buttons should be higher
 input length with longer properties breaks line
-add-apply btn removes css class from pane section element
