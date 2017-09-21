@@ -1,4 +1,4 @@
-/* styles.js, v. 0.1.5, 20.09.2017, @ filip-swinarski */
+/* styles.js, v. 0.1.6, 21.09.2017, @ filip-swinarski */
 
 const rules = [];
 
@@ -397,7 +397,7 @@ rules.push(`.inspector-pane__close {
 	background-color: #fff;
 	border-bottom: 1px solid #bcbcbc;
 	border-left: 1px solid #bcbcbc;
-	padding: 10px 6px;
+	padding: 6px 5px 7px 5px;
 	cursor: pointer;
 	font-size: 20px;
 	z-index: 1;
@@ -411,7 +411,7 @@ rules.push(`.inspector-pane__wrapper {
 }`);
 
 rules.push(`.inspector-pane__header {
-	padding: 10px;
+	padding: 10px 10px 5px 10px;
 	position: relative;
 	border-bottom: 1px solid #efefef;
 	border-top: 1px solid #efefef;
@@ -419,6 +419,10 @@ rules.push(`.inspector-pane__header {
 
 rules.push(`.inspector-pane__section:first-child .inspector-pane__header {
 	border-top: 0 none transparent;
+}`);
+
+rules.push(`.inspector-pane__section:last-child .inspector-pane__header:last-child {
+	border-bottom: 0 none transparent;
 }`);
 
 rules.push(`.inspector-pane__header--expanded {
@@ -451,6 +455,8 @@ rules.push(`.inspector-pane__add-input {
 	border: 1px solid #bcbcbc;
 	position: absolute;
 	right: 9px;
+	font-family: "Space Mono",monospace;
+	font-size: 14px;
 }`);
 
 rules.push(`.inspector-pane__add-label--collapsed {
@@ -526,7 +532,7 @@ rules.push(`.inspector-pane__list-separator {
 rules.push(`.inspector-pane__list-input {
 	-moz-appearance: none;
 	border: 1px solid #fff;
-	font-vamily: "Space Mono",monospace;
+	font-family: "Space Mono",monospace;
 	font-size: 14px;
 	color: #00f;
 }`);
@@ -534,7 +540,7 @@ rules.push(`.inspector-pane__list-input {
 rules.push(`.inspector-pane__list-input:focus {
 	border: 1px solid #bcbcbc;
 	color: #fff;
-	background-color: #3af;
+	background-color: #eee;
 	color: #fff;
 	box-shadow: inset 0 0 2px 1px #fff;
 }`);
