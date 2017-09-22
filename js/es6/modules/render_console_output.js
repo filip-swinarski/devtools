@@ -1,4 +1,4 @@
-// render_console_output.js, v. 0.1.3, 1111111117 @ filip-swinarski
+// render_console_output.js, v. 0.1.3, 2017 @ filip-swinarski
 
 const renderConsoleOutput = (val, element = document.body, index) => {
 
