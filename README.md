@@ -23,15 +23,14 @@ Console API for js scripts:
 
 1. Make property inputs react on typing, so they change their length, and break line only when necessary.
 2. Toggle tools button
-3. Add window height and width info to Browser info section
-4. Add element dimensions info to highlight
-5. Add property and attributes removing from inspector pane, inspector display and elements, when empty value.
-6. Add commenting out for properties without removing from pane.
-7. Add removing property from pane.
-8. Settings section:
+3. Add element dimensions info to highlight
+4. Add property and attributes removing from inspector pane, inspector display and elements, when empty value.
+5. Add commenting out for properties without removing from pane.
+6. Add removing property from pane.
+7. Settings section:
 	steal console logs - DTConsole overwrites browser console
 	live mode
-9. Live mode:
+8. Live mode:
 	inspector pane in a popup pointing to selected element
 	html debugger - select next, select previous, step in, step out
 	console log button working on log selection and console input

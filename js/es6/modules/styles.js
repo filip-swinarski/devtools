@@ -1,4 +1,4 @@
-/* styles.js, v. 0.1.6, 21.09.2017, @ filip-swinarski */
+/* styles.js, v. 0.1.6, 22.09.2017, @ filip-swinarski */
 
 const rules = [];
 
@@ -376,6 +376,14 @@ rules.push(`.browser__display--collapsed {
 	padding-bottom: 0;
 	border-left: 0 none transparent;
 	border-right: 0 none transparent;
+}`);
+
+rules.push(`.browser_display__row {
+	padding-bottom: 5px;
+}`);
+
+rules.push(`.browser_display__key {
+    color: #800080;
 }`);
 
 /* inspector_pane */
