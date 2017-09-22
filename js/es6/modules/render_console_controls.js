@@ -1,4 +1,4 @@
-/* render_console_controls.js, v. 0.1.2, 19.09.2017, @ filip-swinarski */
+/* render_console_controls.js, v. 0.1.3, 22.09.2017, @ filip-swinarski */
 
 import {consoleClear} from './console_clear.js';
 import {globalEval} from './global_eval.js';
@@ -24,7 +24,7 @@ const renderConsoleControls = (container, input) => {
 
 		let value = globalEval(input.value);
 
-		DTConsole.log(value, input.value);	
+		DT.console.log(value, input.value);	
 		input.value = '';
 	}, false);
 }

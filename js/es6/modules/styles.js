@@ -1,4 +1,4 @@
-/* styles.js, v. 0.1.6, 22.09.2017, @ filip-swinarski */
+/* styles.js, v. 0.1.7, 22.09.2017, @ filip-swinarski */
 
 const rules = [];
 
@@ -353,9 +353,15 @@ rules.push(`.console__f-key {
 /* browser_info */
 
 rules.push(`.browser__header {
-	border: 1px solid #bcbcbc;
+	border-top: 1px solid #bcbcbc;
+	border-right: 1px solid #bcbcbc;
+	border-left: 1px solid #bcbcbc;
 	padding: 10px;
 	cursor: pointer;
+}`);
+
+rules.push(`.browser__header--expanded {
+	border-bottom: 1px solid #bcbcbc;
 }`);
 
 rules.push(`.browser__display {
@@ -365,7 +371,7 @@ rules.push(`.browser__display {
 rules.push(`.browser__display--expanded {
 	border-left: 1px solid #bcbcbc;
 	border-right: 1px solid #bcbcbc;
-	height: 400px;
+	height: 163px;
 	transition: height padding-top padding-bottom .5s;
 }`);
 
@@ -576,6 +582,50 @@ rules.push(`.inspector-pane__highlight {
 	position: absolute;
 	top: 10px;
 	right: 2px;
+}`);
+
+/* settings */
+
+rules.push(`.settings__header {
+	border: 1px solid #bcbcbc;
+	padding: 10px;
+	cursor: pointer;
+}`);
+
+rules.push(`.settings__display {
+	padding: 10px; overflow: hidden;
+}`);
+
+rules.push(`.settings__display--expanded {
+	border-left: 1px solid #bcbcbc;
+	border-right: 1px solid #bcbcbc;
+	border-bottom: 1px solid #bcbcbc;
+	height: 100px;
+	transition: height padding-top padding-bottom .5s;
+}`);
+
+rules.push(`.settings__display--collapsed {
+	height: 0;
+	transition: height pading-top padding-bottom .5s;
+	padding-top: 0;
+	padding-bottom: 0;
+	border-left: 0 none transparent;
+	border-right: 0 none transparent;
+}`);
+
+rules.push(`.settings_display__row {
+	padding-bottom: 5px;
+}`);
+
+rules.push(`.settings_display__label {
+	display: block;
+	position: relative;
+}`);
+
+rules.push(`.settings_display__input {
+	position: absolute;
+	right: 0;
+	top: -2px;
 }`);
 
 export {rules};

@@ -1,4 +1,4 @@
-/* console_listen.js, v. 0.1.5, 19.09.2017, @ filip-swinarski */
+/* console_listen.js, v. 0.1.6, 22.09.2017, @ filip-swinarski */
 
 import {consoleDisplay} from './render_console.js';
 import {consoleInput} from './render_console.js';
@@ -55,7 +55,7 @@ const consoleListen = () => {
 
             let value = globalEval(consoleInput.value);
 
-            DTConsole.log(value, consoleInput.value);	
+            DT.console.log(value, consoleInput.value);	
             consoleInput.value = '';
         }
 

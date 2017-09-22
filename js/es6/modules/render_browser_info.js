@@ -1,4 +1,4 @@
-/* render_browser_info.js, v. 0.1.2, 22.09.2017, @ filip-swinarski */
+/* render_browser_info.js, v. 0.1.3, 22.09.2017, @ filip-swinarski */
 
 import {renderHeader} from './render_header.js';
 
@@ -11,7 +11,7 @@ const renderBrowserInfo = (panel) => {
 
     browserInfoContainer.id = 'browser';
     browserInfoContainer.classList.add('browser');
-    browserInfoContainer.classList.add('browser__panel');
+    browserInfoContainer.classList.add('tools_panel');
     browserInfoDisplay.classList.add('browser__display');
     browserInfoDisplay.id = 'browser_display';
     browserInfoDisplay.classList.add('browser__display--collapsed');

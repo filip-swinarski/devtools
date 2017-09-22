@@ -43,15 +43,29 @@
         let obj = {a: 1, b: 2, c: 'a', d: 'd'};
         let func = x => x * 2;
 
-        DTConsole.log(bool);
-        DTConsole.log(str);
-        DTConsole.log(num);
-        DTConsole.log(und);
-        // DTConsole.log(symb);
-        DTConsole.log(arr);
-        DTConsole.log(obj);
-        DTConsole.log(func);
-        xxx(); // error
+		DT.console.log('DT.console test');
+        DT.console.log(bool);
+        DT.console.log(str);
+        DT.console.log(num);
+        DT.console.log(und);
+        // DT.Console.log(symb);
+        DT.console.log(arr);
+        DT.console.log(obj);
+        DT.console.log(func);
+
+		// console steal test
+		console.log('console steal test');
+        console.log(bool);
+        console.log(str);
+        console.log(num);
+        console.log(und);
+        console.log(arr);
+        console.log(obj);
+        console.log(func);
+
+		// error test
+        xxx();
+
         
     </script>
     </body>
