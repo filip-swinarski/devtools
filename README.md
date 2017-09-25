@@ -27,7 +27,6 @@ Console API for js scripts:
 4. Add commenting out for properties without removing from pane.
 5. Add removing property from pane.
 6. Settings section:
-	steal console logs - DTConsole overwrites browser console
 	live mode
 7. Live mode:
 	inspector pane in a popup pointing to selected element
