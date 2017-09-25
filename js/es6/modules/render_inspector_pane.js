@@ -1,4 +1,4 @@
-/* render_inspector_pane.js, v. 0.1.4, 18.09.2017, @ filip-swinarski */
+/* render_inspector_pane.js, v. 0.1.5, 25.09.2017, @ filip-swinarski */
 
 import {renderSection} from './render_section.js';
 
@@ -11,6 +11,7 @@ const renderInspectorPane = (element, row) => {
 	const styleListWrapper = document.createElement('div');
 	const inspectorPaneWrapper = document.createElement('div');
 	const highlightWrapper = document.createElement('div');
+	const dimensionsWrapper = document.createElement('div');
 
     inspectorPane.classList.add('inspector-pane');
 	inspectorPaneWrapper.classList.add('inspector-pane__wrapper');
@@ -24,11 +25,13 @@ const renderInspectorPane = (element, row) => {
 	renderSection('attr_list', 'inspector-pane', 'Attributes', element, row, attributeListWrapper);
 	renderSection('style_list', 'inspector-pane', 'Inline styles', element, row, styleListWrapper);
 	renderSection('highlight_section', 'inspector-pane', 'Highlight element', element, row, highlightWrapper);
+	renderSection('dimensions_section', 'inspector-pane', 'Dimensions', element, row, dimensionsWrapper);
 
     inspectorPane.appendChild(closeBtn);
     inspectorPaneWrapper.appendChild(attributeListWrapper);
     inspectorPaneWrapper.appendChild(styleListWrapper);
     inspectorPaneWrapper.appendChild(highlightWrapper);
+    inspectorPaneWrapper.appendChild(dimensionsWrapper);
     inspectorPane.appendChild(inspectorPaneWrapper);
     container.appendChild(inspectorPane);
 };

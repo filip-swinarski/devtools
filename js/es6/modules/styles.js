@@ -1,4 +1,4 @@
-/* styles.js, v. 0.1.7, 22.09.2017, @ filip-swinarski */
+/* styles.js, v. 0.1.8, 25.09.2017, @ filip-swinarski */
 
 const rules = [];
 
@@ -435,10 +435,6 @@ rules.push(`.inspector-pane__section:first-child .inspector-pane__header {
 	border-top: 0 none transparent;
 }`);
 
-rules.push(`.inspector-pane__section:last-child .inspector-pane__header:last-child {
-	border-bottom: 0 none transparent;
-}`);
-
 rules.push(`.inspector-pane__header--expanded {
 	padding-bottom: 40px;
 }`);
@@ -582,6 +578,18 @@ rules.push(`.inspector-pane__highlight {
 	position: absolute;
 	top: 10px;
 	right: 2px;
+}`);
+
+rules.push(`.inspector-pane__dimensions-row {
+	padding: 5px 20px;
+}`);
+
+rules.push(`.inspector-pane__key {
+	color: #800080;
+}`);
+
+rules.push(`.inspector-pane__value {
+	color: #00f;
 }`);
 
 /* settings */

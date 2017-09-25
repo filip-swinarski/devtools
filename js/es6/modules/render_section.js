@@ -1,4 +1,4 @@
-/* render_section.js, v. 0.1.2, 21.09.2017, @ filip-swinarski */
+/* render_section.js, v. 0.1.3, 25.09.2017, @ filip-swinarski */
 
 import {renderAttrInput} from './render_attribute_input.js';
 import {addButtonAction} from './add_button_action.js';
@@ -114,6 +114,18 @@ const renderSection = (id, prefix, title, element, row, listWrapper) => {
 		highlightCheckbox.addEventListener('change', () => {
 			highlightBoxAction(element, row);
 		}, false);
+	} else if (id === 'dimensions_section') {
+
+		const widthRow = document.createElement('div');
+		const heightRow = document.createElement('div');
+
+		sectionName = 'dimensions';
+		widthRow.classList.add(`${prefix}__dimensions-row`);
+		heightRow.classList.add(`${prefix}__dimensions-row`);
+		widthRow.innerHTML = `<span class="${prefix}__key">width: </span><span class="${prefix}__value">${element.clientWidth}px</span>`;
+		heightRow.innerHTML = `<span class="${prefix}__key">height: </span><span class="${prefix}__value">${element.clientHeight}px</span>`;
+		listWrapper.appendChild(widthRow);
+		listWrapper.appendChild(heightRow);
 	}
 
 	header.classList.add(`${prefix}__header`);
