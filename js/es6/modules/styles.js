@@ -1,4 +1,4 @@
-/* styles.js, v. 0.1.8, 25.09.2017, @ filip-swinarski */
+/* styles.js, v. 0.1.9, 25.09.2017, @ filip-swinarski */
 
 const rules = [];
 
@@ -467,6 +467,7 @@ rules.push(`.inspector-pane__add-input {
 	right: 9px;
 	font-family: "Space Mono",monospace;
 	font-size: 14px;
+	min-width: 10px;
 }`);
 
 rules.push(`.inspector-pane__add-label--collapsed {
@@ -545,13 +546,14 @@ rules.push(`.inspector-pane__list-input {
 	font-family: "Space Mono",monospace;
 	font-size: 14px;
 	color: #00f;
+	min-width: 10px;
 }`);
 
 rules.push(`.inspector-pane__list-input:focus {
 	border: 1px solid #bcbcbc;
 	color: #fff;
 	background-color: #eee;
-	color: #fff;
+	color: #444;
 	box-shadow: inset 0 0 2px 1px #fff;
 }`);
 

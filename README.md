@@ -21,14 +21,13 @@ Console API for js scripts:
 
 ## To do
 
-1. Make property inputs react on typing, so they change their length, and break line only when necessary.
-2. Toggle tools button
-3. Add property and attributes removing from inspector pane, inspector display and elements, when empty value.
-4. Add commenting out for properties without removing from pane.
-5. Add removing property from pane.
-6. Settings section:
+1. Toggle tools button
+2. Add property and attributes removing from inspector pane, inspector display and elements, when empty value.
+3. Add commenting out for properties without removing from pane.
+4. Add removing property from pane.
+5. Settings section:
 	live mode
-7. Live mode:
+6. Live mode:
 	inspector pane in a popup pointing to selected element
 	html debugger - select next, select previous, step in, step out
 	console log button working on log selection and console input

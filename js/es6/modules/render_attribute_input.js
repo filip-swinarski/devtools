@@ -1,4 +1,4 @@
-/* render_attribute_input.js, v. 0.1.2, 20.09.2017, @ filip-swinarski */
+/* render_attribute_input.js, v. 0.1.3, 25.09.2017, @ filip-swinarski */
 
 const renderAttrInput = (el, display, row, name, value, prefix) => {
    
@@ -7,9 +7,12 @@ const renderAttrInput = (el, display, row, name, value, prefix) => {
 	const separator = document.createElement('span');
 	const applyBtn = document.createElement('button');
 	const listElement = document.createElement('li');
+	let length;
    
 	input.type = 'text';
 	input.value = value;
+	length = value.length * 8;
+	input.style.width = `${length}px`;
 
 	if (display.id == 'style_list')
 		input.value += ';';
@@ -72,6 +75,11 @@ const renderAttrInput = (el, display, row, name, value, prefix) => {
 			applyBtn.classList.add(`${prefix}__list-btn--collapsed`);
 		}
 
+	}, false);
+
+	input.addEventListener('keyup', (e) => {
+		length = input.value.length * 8;
+		input.style.width = `${length}px`;
 	}, false);
 
 	input.addEventListener('focus', (e) => {
