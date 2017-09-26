@@ -1,4 +1,4 @@
-/* styles.js, v. 0.1.10, 26.09.2017, @ filip-swinarski */
+/* styles.js, v. 0.1.11, 26.09.2017, @ filip-swinarski */
 
 const rules = [];
 
@@ -640,6 +640,8 @@ rules.push(`.settings_display__input {
 	top: -2px;
 }`);
 
+/* overlay */
+
 rules.push(`.tools_overlay {
 	width: 100%;
 	height: 100%;
@@ -649,6 +651,41 @@ rules.push(`.tools_overlay {
 	left: 0;
 	right: 0;
 	zIndex: 999999;
+}`);
+
+/* popup */
+
+rules.push(`.tools_popup {
+	position: fixed;
+	max-width: calc(100% - 20px);
+	width: calc(100% - 20px);
+	min-height: 100px;
+	top: 0;
+	background-color: #fff;
+	border: 1px solid #bcbcbc;
+	border-radius: 7px;
+	box-shadow: 0 1px 3px 1px #bcbcbc;
+	z-index: 99999999;
+}`);
+
+rules.push(`.popup__close {
+	position: absolute;
+	right: 7px;
+	font-size: 18px;
+	coursor: pointer;
+}`);
+
+rules.push(`.devtools_live_debugger {
+    padding: 8px 10px;
+}`);
+
+rules.push(`.devtools_live_debugger__control {
+    display: inline-block;
+    padding: 0 10px 4px;
+    border: 1px solid #bcbcbc;
+    border-radius: 4px;
+    color: #000;
+	coursor: pointer;
 }`);
 
 export {rules};

@@ -10,8 +10,8 @@ Evaluate JS snippets in console.
 
 Console API for js scripts:
 
-	DTConsole.log
-	DTConsole.clear
+	DT.console.log
+	DT.console.clear
 
 ## Features
 
@@ -25,11 +25,8 @@ Console API for js scripts:
 2. Add property and attributes removing from inspector pane, inspector display and elements, when empty value.
 3. Add commenting out for properties without removing from pane.
 4. Add removing property from pane.
-5. Settings section:
-	live mode
-6. Live mode:
+5. Live mode:
 	inspector pane in a popup pointing to selected element
-	html debugger - select next, select previous, step in, step out
 	console log button working on log selection and console input
 
 ## Bugs
