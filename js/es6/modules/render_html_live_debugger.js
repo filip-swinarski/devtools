@@ -1,4 +1,4 @@
-/* render_html_live_debugger.js, v. 0.1.0, 26.09.2017, @ filip-swinarski */
+/* render_html_live_debugger.js, v. 0.1.1, 26.09.2017, @ filip-swinarski */
 
 import {renderPopup} from './render_popup.js';
 
@@ -24,6 +24,18 @@ const renderHtmlLiveDebugger = (element) => {
 	prevControl.innerText = 'prev';
 	stepInControl.innerText = 'in';
 	stepOutControl.innerText = 'out';
+
+	if (!element.nextElementSibling)
+		nextControl.classList.add('devtools_live_debugger__control--disabled');
+
+	if (!element.previousElementSibling)
+		prevControl.classList.add('devtools_live_debugger__control--disabled');
+
+	if (!element.firstElementChild)
+		stepInControl.classList.add('devtools_live_debugger__control--disabled');
+
+	if (!element.parentElement)
+		stepOutControl.classList.add('devtools_live_debugger__control--disabled');
 
 	nextControl.addEventListener('click', () => {
 

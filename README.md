@@ -27,7 +27,9 @@ Console API for js scripts:
 4. Add removing property from pane.
 5. Live mode:
 	inspector pane in a popup pointing to selected element
+	add highlighting elements when chosen
 	console log button working on log selection and console input
 
 ## Bugs
+1. Popup should not appear below screen
 

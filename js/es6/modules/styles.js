@@ -1,4 +1,4 @@
-/* styles.js, v. 0.1.11, 26.09.2017, @ filip-swinarski */
+/* styles.js, v. 0.1.12, 26.09.2017, @ filip-swinarski */
 
 const rules = [];
 
@@ -672,7 +672,7 @@ rules.push(`.popup__close {
 	position: absolute;
 	right: 7px;
 	font-size: 18px;
-	coursor: pointer;
+	cursor: pointer;
 }`);
 
 rules.push(`.devtools_live_debugger {
@@ -685,7 +685,11 @@ rules.push(`.devtools_live_debugger__control {
     border: 1px solid #bcbcbc;
     border-radius: 4px;
     color: #000;
-	coursor: pointer;
+	cursor: pointer;
+}`);
+
+rules.push(`.devtools_live_debugger__control--disabled {
+    color: #bcbcbc;
 }`);
 
 export {rules};

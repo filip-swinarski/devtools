@@ -9,10 +9,18 @@ const renderPopup = (element) => {
 	const popupWrapper = document.createElement('div');
 	const elementRect = element.getBoundingClientRect();
 	const htmlDebugger = renderHtmlLiveDebugger(element);
+	const position = elementRect.y + popup.clientHeight;
 
 	popup.classList.add('tools_popup');
 	popup.id = 'tools_live_popup';
-	popup.style.top = `${elementRect.y + elementRect.height}px`;
+
+	if (position < 0)
+		popup.style.top = `0px`;
+	else if (elementRect.y >= window.innerHeight)
+		popup.style.top = `${window.innerHeight - popup.clientHeight}px`;
+	else
+		popup.style.top = `${position}px`;
+
 	popupWrapper.classList.add('popup__wrapper');
 	closeBtn.classList.add('popup__close');
 	closeBtn.innerHTML = 'x';

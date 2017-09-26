@@ -11,7 +11,8 @@ const renderSettingsControls = (container) => {
 	const liveModeRow = document.createElement('div');
 	const liveModeLabel = document.createElement('label');
 	const liveModeInput = document.createElement('input');
-	let storage = JSON.parse(localStorage[document.domain]);
+	let storage = localStorage[document.domain] 
+		? JSON.parse(localStorage[document.domain]) : false;
 
 	stealConsoleRow.classList.add('settings_display__row');
 	stealConsoleLabel.classList.add('settings_display__label');
