@@ -1,4 +1,4 @@
-/* styles.js, v. 0.1.9, 25.09.2017, @ filip-swinarski */
+/* styles.js, v. 0.1.10, 26.09.2017, @ filip-swinarski */
 
 const rules = [];
 
@@ -13,6 +13,8 @@ rules.push(`.tools {
 	font-size: 14px;
 	font-family: 'Space Mono', monospace;
 	background-color: #fff;
+	position: relative;
+	z-index: 9999999;
 }`);
 
 rules.push(`.tools__panel {
@@ -636,6 +638,17 @@ rules.push(`.settings_display__input {
 	position: absolute;
 	right: 0;
 	top: -2px;
+}`);
+
+rules.push(`.tools_overlay {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	zIndex: 999999;
 }`);
 
 export {rules};
