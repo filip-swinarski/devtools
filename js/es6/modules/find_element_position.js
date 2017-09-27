@@ -1,4 +1,4 @@
-/* find_element_position.js, v. 0.1.0, 26.09.2017, @ filip-swinarski */
+/* find_element_position.js, v. 0.1.1, 27.09.2017, @ filip-swinarski */
 
 const findElementPosition = (x, y) => {
 
@@ -12,8 +12,6 @@ const findElementPosition = (x, y) => {
             && y <= el.y + el.height
             && !element.classList.contains('tools_overlay');
     });
-    console.log(elements[elements.length - 1]);
-
     return elements[elements.length - 1];
 };
 

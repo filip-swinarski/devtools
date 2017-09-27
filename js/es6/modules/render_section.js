@@ -1,10 +1,9 @@
-/* render_section.js, v. 0.1.4, 27.09.2017, @ filip-swinarski */
+/* render_section.js, v. 0.1.5, 27.09.2017, @ filip-swinarski */
 
-import {renderAttrInput} from './render_attribute_input.js';
-import {addButtonAction} from './add_button_action.js';
-import {applyButtonAction} from './apply_button_action.js';
-import {cancelButtonAction} from './cancel_button_action.js';
-import {highlightBoxAction} from './highlight_box_action.js';
+import {renderListSectionContent} from './render_list_section_content.js';
+import {renderHighlightSectionContent} from './render_highlight_section_content.js';
+import {renderDimensionsSectionContent} from './render_dimensions_section_content.js';
+import {renderNodenameSectionContent} from './render_nodename_section_content.js';
 
 const renderSection = (id, prefix, title, element, row, listWrapper) => {
 
@@ -18,124 +17,17 @@ const renderSection = (id, prefix, title, element, row, listWrapper) => {
 	listWrapper.appendChild(header);
 	list.classList.add(`${prefix}__list`);
 
-	if (id === 'attr_list' || id === 'style_list') {
+	if (id === 'attr_list' || id === 'style_list')
+		renderListSectionContent(id, element, prefix, row, header, list, listWrapper, sectionName, regexp1, regexp2);
 
-		const addBtn = document.createElement('button');
-		const addApplyBtn = document.createElement('button');
-		const addCancelBtn = document.createElement('button');
-		const nameInput = document.createElement('input');
-		const valueInput = document.createElement('input');
-		const nameInputLabel = document.createElement('label');
-		const valueInputLabel = document.createElement('label');
-		let arr;
-		
-		listWrapper.appendChild(list);
+	if (id === 'highlight_section')
+		renderHighlightSectionContent(element, header, row, prefix, list, listWrapper, sectionName, regexp1, regexp2);
 
-		if (id === 'attr_list') {
-			arr = [].filter.call(element.attributes, attr => attr.name !== 'style');
-			sectionName = 'attributes';
-		} else {
-			arr = [];
-			sectionName = 'styles';
-		}
+	if (id === 'dimensions_section')
+		renderDimensionsSectionContent(element, header, prefix, list, listWrapper, sectionName);
 
-		list.id = id;
-		addBtn.innerText = '+';
-		addBtn.classList.add(`${prefix}__add`);
-		addApplyBtn.innerText = 'Apply';
-		addCancelBtn.innerText = 'Cancel';
-		addApplyBtn.id = `add_${id.replace('_list', '')}_btn`;
-		addApplyBtn.classList.add(`${prefix}__apply`);
-		addCancelBtn.classList.add(`${prefix}__cancel`);
-		nameInputLabel.innerText = id === 'style_list' ? 'property name ' : 'attribute name ';
-		valueInputLabel.innerText = id === 'style_list' ? 'property value ' : 'attribute value ';
-		nameInput.type = 'text';
-		nameInput.classList.add(`${prefix}__add-input`);
-		valueInput.type = 'text';
-		valueInput.classList.add(`${prefix}__add-input`);
-		addApplyBtn.classList.add(`${prefix}__apply--collapsed`);
-		addCancelBtn.classList.add(`${prefix}__cancel--collapsed`);
-		nameInputLabel.classList.add(`${prefix}__add-label--collapsed`);
-		valueInputLabel.classList.add(`${prefix}__add-label--collapsed`);
-		header.appendChild(addBtn);
-		header.appendChild(addCancelBtn);
-		header.appendChild(addApplyBtn);
-		nameInputLabel.appendChild(nameInput);
-		valueInputLabel.appendChild(valueInput);
-		header.appendChild(nameInputLabel);
-		header.appendChild(valueInputLabel);
-
-		if (id === 'style_list' && element.attributes && element.attributes.style) {
-			arr = ''.split.call(element.attributes.style.value, '; ')
-			arr = arr.map(rule => rule.replace(';', ''));
-
-			if (row.hasAttribute('data-highlight'))
-				arr = arr.filter(rule => !rule.match(regexp1) && !rule.match(regexp2));
-
-		}
-
-		for (let item in arr) {
-			
-			let name;
-			let value;
-
-			if (id === 'style_list') {
-				name = arr[item].split(': ')[0];
-				value = arr[item].split(': ')[1];
-			} else {
-				name = arr[item].name;
-				value = arr[item].value;
-			}
-
-			renderAttrInput(element, list, row, name, value, prefix);
-		}
-
-		addBtn.addEventListener('click', (e) => {
-			addButtonAction(addApplyBtn, addCancelBtn, nameInputLabel, valueInputLabel, header, prefix);
-		}, false);
-		addApplyBtn.addEventListener('click', () => {
-			applyButtonAction(element, addApplyBtn, addCancelBtn, valueInputLabel, nameInputLabel, arr, list, row, header, prefix);
-		}, false);
-		addCancelBtn.addEventListener('click', () => {
-			cancelButtonAction(addApplyBtn, addCancelBtn, valueInputLabel, nameInputLabel, header, prefix);
-		}, false);
-	} else if (id === 'highlight_section') {
-
-		const highlightCheckbox = document.createElement('input');
-
-		sectionName = 'highlight';
-		highlightCheckbox.type = 'checkbox';
-		highlightCheckbox.classList.add(`${prefix}__highlight`);
-		header.appendChild(highlightCheckbox);
-
-		if (element.style.cssText.match(regexp1) || element.style.cssText.match(regexp2))
-			highlightCheckbox.checked = true;
-
-		highlightCheckbox.addEventListener('change', () => {
-			highlightBoxAction(element, row);
-		}, false);
-	} else if (id === 'dimensions_section') {
-
-		const widthRow = document.createElement('div');
-		const heightRow = document.createElement('div');
-
-		sectionName = 'dimensions';
-		widthRow.classList.add(`${prefix}__dimensions-row`);
-		heightRow.classList.add(`${prefix}__dimensions-row`);
-		widthRow.innerHTML = `<span class="${prefix}__key">width: </span>
-			<span class="${prefix}__value">${element.clientWidth}px</span>`;
-		heightRow.innerHTML = `<span class="${prefix}__key">height: </span>
-			<span class="${prefix}__value">${element.clientHeight}px</span>`;
-		listWrapper.appendChild(widthRow);
-		listWrapper.appendChild(heightRow);
-	} else if (id === 'node_name') {
-
-		const nodeNameContainer = document.createElement('span');
-
-		nodeNameContainer.innerText = element.nodeName.toLowerCase();
-		nodeNameContainer.classList.add(`${prefix}__node-name`);
-		header.appendChild(nodeNameContainer);
-	}
+	if (id === 'node_name')
+		renderNodenameSectionContent(element, header, prefix, list, listWrapper, sectionName);
 
 	header.classList.add(`${prefix}__header`);
 	listWrapper.classList.add(`${prefix}__section`);
