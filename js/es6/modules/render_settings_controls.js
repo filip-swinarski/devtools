@@ -1,4 +1,4 @@
-/* render_settings_controls.js, v. 0.1.1, 26.09.2017, @ filip-swinarski */
+/* render_settings_controls.js, v. 0.1.2, 27.09.2017, @ filip-swinarski */
 
 import {stealConsoleAction} from './steal_console_action.js';
 import {liveModeAction} from './live_mode_action.js';
@@ -25,9 +25,9 @@ const renderSettingsControls = (container) => {
 	container.appendChild(stealConsoleRow);
 
 	if (storage && storage.stealBrowserConsole)
-		stealConsoleInput.setAttribute('checked', true);
+		stealConsoleInput.checked = true;
 	else
-		stealConsoleInput.removeAttribute('checked')
+		stealConsoleInput.checked = false;
 
 	stealConsoleInput.addEventListener('change', () =>
 		stealConsoleAction(stealConsoleInput), false);
@@ -43,9 +43,9 @@ const renderSettingsControls = (container) => {
 	container.appendChild(liveModeRow);
 
 	if (storage && storage.liveMode)
-		liveModeInput.setAttribute('checked', true);
+		liveModeInput.checked = true;
 	else
-		liveModeInput.removeAttribute('checked')
+		liveModeInput.checked = false;
 
 	liveModeInput.addEventListener('change', () => 
 		liveModeAction(liveModeInput), false);

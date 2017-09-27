@@ -1,4 +1,4 @@
-/* render_popup.js, v. 0.1.6, 26.09.2017, @ filip-swinarski */
+/* render_popup.js, v. 0.1.7, 27.09.2017, @ filip-swinarski */
 
 import {renderHtmlLiveDebugger} from './render_html_live_debugger.js';
 
@@ -27,13 +27,16 @@ const renderPopup = (element) => {
 
 	closeBtn.addEventListener('click', () => {
 
+		const overlay = document.querySelector('#tools_overlay');
+		const liveModeInput = document.querySelector('#live_mode_input');
 		const config = JSON.stringify({
 			stealBrowserConsole: DT.stealBrowserConsole,
 			liveMode: false
 		});
 
 		localStorage.setItem(document.domain, config);
-		document.querySelector('#tools_overlay').remove();
+		overlay.remove();
+		liveModeInput.checked = false;
 		DT.liveMode = false;
 		popup.remove();
 	}, false);
