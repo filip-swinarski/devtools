@@ -1,4 +1,4 @@
-/* styles.js, v. 0.1.12, 26.09.2017, @ filip-swinarski */
+/* styles.js, v. 0.1.13, 27.09.2017, @ filip-swinarski */
 
 const rules = [];
 
@@ -659,7 +659,7 @@ rules.push(`.tools_popup {
 	position: fixed;
 	max-width: calc(100% - 20px);
 	width: calc(100% - 20px);
-	min-height: 100px;
+	min-height: 150px;
 	top: 0;
 	background-color: #fff;
 	border: 1px solid #bcbcbc;
@@ -668,18 +668,20 @@ rules.push(`.tools_popup {
 	z-index: 99999999;
 }`);
 
-rules.push(`.popup__close {
+rules.push(`.tools_popup__close {
 	position: absolute;
 	right: 7px;
 	font-size: 18px;
 	cursor: pointer;
 }`);
 
-rules.push(`.devtools_live_debugger {
+/* html live debugger */
+
+rules.push(`.tools_debugger {
     padding: 8px 10px;
 }`);
 
-rules.push(`.devtools_live_debugger__control {
+rules.push(`.tools_debugger__control {
     display: inline-block;
     padding: 0 10px 4px;
     border: 1px solid #bcbcbc;
@@ -688,8 +690,217 @@ rules.push(`.devtools_live_debugger__control {
 	cursor: pointer;
 }`);
 
-rules.push(`.devtools_live_debugger__control--disabled {
+rules.push(`.tools_debugger__control--disabled {
     color: #bcbcbc;
+}`);
+
+/* popup pane */
+
+rules.push(`.tools_popup-pane {
+	position: absolute;
+	background-color: #fff;
+	width: calc(100% - 2px);
+	height: 110px;
+	top: 39px;
+	left: 1px;
+	overflow-y: auto;
+}`);
+
+rules.push(`.tools_popup-pane__close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #fff;
+	border-bottom: 1px solid #bcbcbc;
+	border-left: 1px solid #bcbcbc;
+	padding: 6px 5px 7px 5px;
+	cursor: pointer;
+	font-size: 20px;
+	z-index: 1;
+}`);
+
+rules.push(`.tools_popup-pane__wrapper {
+	height: auto;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	position: relative;
+}`);
+
+rules.push(`.tools_popup-pane__header {
+	padding: 10px 10px 5px 10px;
+	position: relative;
+	border-bottom: 1px solid #efefef;
+	border-top: 1px solid #efefef;
+}`);
+
+rules.push(`.tools_popup-pane__section:first-child .tools_popup-pane__header {
+	border-top: 0 none transparent;
+}`);
+
+rules.push(`.tools_popup-pane__header--expanded {
+	padding-bottom: 40px;
+}`);
+
+rules.push(`.tools_popup-pane__headline {
+	display: block;
+	padding-bottom: 5px;
+}`);
+
+rules.push(`.tools_popup-pane__add {
+	position: absolute;
+	-moz-appearance: none;
+	background-color: transparent;
+	box-shadow: none;
+	border: 0 none transparent;
+	padding: 0;
+	right: 5px;
+	top: 5px;
+	font-size: 20px;
+}`);
+
+rules.push(`.tools_popup-pane__section:first-child .tools_popup-pane__add {
+	right: 32px;
+}`);
+
+rules.push(`.tools_popup-pane__add-input {
+	-moz-appearance: none;
+	border: 1px solid #bcbcbc;
+	position: absolute;
+	right: 9px;
+	font-family: "Space Mono",monospace;
+	font-size: 14px;
+	min-width: 10px;
+}`);
+
+rules.push(`.tools_popup-pane__add-label--collapsed {
+	display: none;
+}`);
+
+rules.push(`.tools_popup-pane__add-label--expanded {
+	display: block;
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-bottom: 5px;
+}`);
+
+rules.push(`.tools_popup-pane__apply {
+	position: absolute;
+	right: 10px;
+	top: 94px;
+	border: 0 none transparent;
+	background-color: #a93226;
+	-moz-appearance: none;
+	color: #fff;
+	padding: 0 10px 4px;
+}`);
+
+rules.push(`.tools_popup-pane__apply--collapsed {
+	display: none;
+}`);
+
+rules.push(`.tools_popup-pane__apply--expanded {
+	display: inline-block;
+}`);
+
+rules.push(`.tools_popup-pane__cancel {
+	position: absolute;
+	right: 65px;
+	top: 94px;
+	border: 0 none transparent;
+	background-color: #acacac;
+	-moz-appearance: none;
+	color: #444;
+	padding: 0 10px 4px;
+}`);
+
+rules.push(`.tools_popup-pane__cancel--collapsed {
+	display: none;
+}`);
+
+rules.push(`.tools_popup-pane__cancel--expanded {
+	display: inline-block;
+}`);
+
+rules.push(`.tools_popup-pane__list {
+	list-style: none;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 20px;
+}`);
+
+rules.push(`.tools_popup-pane__list-element {
+	position: relative;
+}`);
+
+rules.push(`.tools_popup-pane__list-label {
+	display: block;
+	color: #800080;
+}`);
+
+rules.push(`.tools_popup-pane__list-separator {
+	padding-right: 5px;
+	color: #000;
+}`);
+
+rules.push(`.tools_popup-pane__list-input {
+	-moz-appearance: none;
+	border: 1px solid #fff;
+	font-family: "Space Mono",monospace;
+	font-size: 14px;
+	color: #00f;
+	min-width: 10px;
+}`);
+
+rules.push(`.tools_popup-pane__list-input:focus {
+	border: 1px solid #bcbcbc;
+	color: #fff;
+	background-color: #eee;
+	color: #444;
+	box-shadow: inset 0 0 2px 1px #fff;
+}`);
+
+rules.push(`.tools_popup-pane__list-btn {
+	position: absolute;
+	right: 10px;
+	border: 0 none transparent;
+	background-color: #a93226;
+	-moz-appearance: none;
+	top: 0;
+	color: #fff;
+	padding: 0 10px 4px;
+}`);
+
+rules.push(`.tools_popup-pane__list-btn--expanded {
+	visibility: visible;
+}`);
+
+rules.push(`.tools_popup-pane__list-btn--collapsed {
+	visibility: hidden;
+}`);
+
+rules.push(`.tools_popup-pane__highlight {
+	position: absolute;
+	top: 10px;
+	right: 2px;
+}`);
+
+rules.push(`.tools_popup-pane__dimensions-row {
+	padding: 5px 20px;
+}`);
+
+rules.push(`.tools_popup-pane__key {
+	color: #800080;
+}`);
+
+rules.push(`.tools_popup-pane__value {
+	color: #00f;
+}`);
+
+rules.push(`.tools_popup-pane__node-name {
+	color: #800080;
+	position: absolute;
+	right: 10px;
+	top: 10px;
 }`);
 
 export {rules};

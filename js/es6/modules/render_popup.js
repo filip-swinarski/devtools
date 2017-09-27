@@ -1,6 +1,7 @@
-/* render_popup.js, v. 0.1.7, 27.09.2017, @ filip-swinarski */
+/* render_popup.js, v. 0.1.8, 27.09.2017, @ filip-swinarski */
 
 import {renderHtmlLiveDebugger} from './render_html_live_debugger.js';
+import {renderInspectorPane} from './render_inspector_pane.js';
 
 const renderPopup = (element) => {
 
@@ -12,7 +13,7 @@ const renderPopup = (element) => {
 	const position = elementRect.y + popup.clientHeight;
 
 	popup.classList.add('tools_popup');
-	popup.id = 'tools_live_popup';
+	popup.id = 'tools_popup';
 
 	if (position < 0)
 		popup.style.top = `0px`;
@@ -21,8 +22,8 @@ const renderPopup = (element) => {
 	else
 		popup.style.top = `${position}px`;
 
-	popupWrapper.classList.add('popup__wrapper');
-	closeBtn.classList.add('popup__close');
+	popupWrapper.classList.add('tools_popup__wrapper');
+	closeBtn.classList.add('tools_popup__close');
 	closeBtn.innerHTML = 'x';
 
 	closeBtn.addEventListener('click', () => {
@@ -44,12 +45,8 @@ const renderPopup = (element) => {
 	popup.appendChild(closeBtn);
 	popup.appendChild(popupWrapper);
 	popupWrapper.appendChild(htmlDebugger);
+	renderInspectorPane(element, null, popup);
 	document.body.appendChild(popup);
-
-	// test
-	const testDisplay = document.createElement('div');
-	testDisplay.innerHTML = ` ${element.nodeName.toLowerCase()}`;
-	popupWrapper.appendChild(testDisplay);
 };
 
 export {renderPopup};

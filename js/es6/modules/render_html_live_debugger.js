@@ -1,4 +1,4 @@
-/* render_html_live_debugger.js, v. 0.1.1, 26.09.2017, @ filip-swinarski */
+/* render_html_live_debugger.js, v. 0.1.2, 27.09.2017, @ filip-swinarski */
 
 import {renderPopup} from './render_popup.js';
 
@@ -9,13 +9,13 @@ const renderHtmlLiveDebugger = (element) => {
 	const prevControl = document.createElement('div');
 	const stepInControl = document.createElement('div');
 	const stepOutControl = document.createElement('div');
-	const popup = document.querySelector('#tools_live_popup');
+	const popup = document.querySelector('#tools_popup');
 
-	htmlDebugger.classList.add('devtools_live_debugger');
-	nextControl.classList.add('devtools_live_debugger__control');
-	prevControl.classList.add('devtools_live_debugger__control');
-	stepInControl.classList.add('devtools_live_debugger__control');
-	stepOutControl.classList.add('devtools_live_debugger__control');
+	htmlDebugger.classList.add('tools_debugger');
+	nextControl.classList.add('tools_debugger__control');
+	prevControl.classList.add('tools_debugger__control');
+	stepInControl.classList.add('tools_debugger__control');
+	stepOutControl.classList.add('tools_debugger__control');
 	htmlDebugger.appendChild(nextControl);
 	htmlDebugger.appendChild(prevControl);
 	htmlDebugger.appendChild(stepInControl);
@@ -26,21 +26,21 @@ const renderHtmlLiveDebugger = (element) => {
 	stepOutControl.innerText = 'out';
 
 	if (!element.nextElementSibling)
-		nextControl.classList.add('devtools_live_debugger__control--disabled');
+		nextControl.classList.add('tools_debugger__control--disabled');
 
 	if (!element.previousElementSibling)
-		prevControl.classList.add('devtools_live_debugger__control--disabled');
+		prevControl.classList.add('tools_debugger__control--disabled');
 
 	if (!element.firstElementChild)
-		stepInControl.classList.add('devtools_live_debugger__control--disabled');
+		stepInControl.classList.add('tools_debugger__control--disabled');
 
 	if (!element.parentElement)
-		stepOutControl.classList.add('devtools_live_debugger__control--disabled');
+		stepOutControl.classList.add('tools_debugger__control--disabled');
 
 	nextControl.addEventListener('click', () => {
 
 		if (element.nextElementSibling) {
-			document.querySelector('#tools_live_popup').remove();
+			document.querySelector('#tools_popup').remove();
 			renderPopup(element.nextElementSibling);
 		}
 
@@ -48,7 +48,7 @@ const renderHtmlLiveDebugger = (element) => {
 	prevControl.addEventListener('click', () => {
 
 		if (element.previousElementSibling) {
-			document.querySelector('#tools_live_popup').remove();
+			document.querySelector('#tools_popup').remove();
 			renderPopup(element.previousElementSibling);
 		}
 
@@ -56,7 +56,7 @@ const renderHtmlLiveDebugger = (element) => {
 	stepInControl.addEventListener('click', () => {
 
 		if (element.firstElementChild) {
-			document.querySelector('#tools_live_popup').remove();
+			document.querySelector('#tools_popup').remove();
 			renderPopup(element.firstElementChild);
 		}
 
@@ -64,7 +64,7 @@ const renderHtmlLiveDebugger = (element) => {
 	stepOutControl.addEventListener('click', () => {
 
 		if (element.parentElement) {
-			document.querySelector('#tools_live_popup').remove();
+			document.querySelector('#tools_popup').remove();
 			renderPopup(element.parentElement);
 		}
 

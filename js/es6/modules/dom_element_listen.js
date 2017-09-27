@@ -1,9 +1,10 @@
-/* dom_element_listen.js, v. 0.1.1, 20.09.2017, @ filip-swinarski */
+/* dom_element_listen.js, v. 0.1.2, 27.09.2017, @ filip-swinarski */
 
 import {renderInspectorPane} from './render_inspector_pane.js';
 
 const domElementListen = (elem, row, arrow) => {
 
+	const inspector = document.querySelector('#inspector');
 	let startDate;
 	let tObj;
 	let startX;
@@ -59,7 +60,7 @@ const domElementListen = (elem, row, arrow) => {
 				}
 
 			} else {
-				renderInspectorPane(elem, row);
+				renderInspectorPane(elem, row, inspector);
 			}
 		   
 		}
