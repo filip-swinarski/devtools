@@ -32,5 +32,4 @@ Console API for js scripts:
 
 ## Bugs
 1. Popup should not appear below screen
-2. Add and apply buttons not working in popup 
 

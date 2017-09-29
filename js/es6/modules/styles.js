@@ -1,4 +1,4 @@
-/* styles.js, v. 0.1.13, 27.09.2017, @ filip-swinarski */
+/* styles.js, v. 0.1.14, 29.09.2017, @ filip-swinarski */
 
 const rules = [];
 
@@ -756,10 +756,6 @@ rules.push(`.tools_popup-pane__add {
 	right: 5px;
 	top: 5px;
 	font-size: 20px;
-}`);
-
-rules.push(`.tools_popup-pane__section:first-child .tools_popup-pane__add {
-	right: 32px;
 }`);
 
 rules.push(`.tools_popup-pane__add-input {

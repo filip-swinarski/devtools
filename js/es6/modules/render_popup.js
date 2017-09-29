@@ -1,7 +1,8 @@
-/* render_popup.js, v. 0.1.8, 27.09.2017, @ filip-swinarski */
+/* render_popup.js, v. 0.1.9, 29.09.2017, @ filip-swinarski */
 
 import {renderHtmlLiveDebugger} from './render_html_live_debugger.js';
 import {renderInspectorPane} from './render_inspector_pane.js';
+import {findElementIndex} from './find_element_index.js';
 
 const renderPopup = (element) => {
 
@@ -11,6 +12,8 @@ const renderPopup = (element) => {
 	const elementRect = element.getBoundingClientRect();
 	const htmlDebugger = renderHtmlLiveDebugger(element);
 	const position = elementRect.y + popup.clientHeight;
+	const index = findElementIndex(element);
+	const row = document.querySelectorAll('.inspector__row--opening')[index];
 
 	popup.classList.add('tools_popup');
 	popup.id = 'tools_popup';
@@ -45,7 +48,7 @@ const renderPopup = (element) => {
 	popup.appendChild(closeBtn);
 	popup.appendChild(popupWrapper);
 	popupWrapper.appendChild(htmlDebugger);
-	renderInspectorPane(element, null, popup);
+	renderInspectorPane(element, row, popup);
 	document.body.appendChild(popup);
 };
 
